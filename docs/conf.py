@@ -21,7 +21,7 @@ version = get_distribution("ssllabs").version
 # -- Project information -----------------------------------------------------
 
 project = get_distribution("ssllabs").project_name
-copyright = "2023, devolo GmbH"
+copyright = "2023, Markus Bong and Guido Schmitz"
 author = "Markus Bong, Guido Schmitz"
 
 # -- General configuration ---------------------------------------------------
@@ -46,7 +46,7 @@ exclude_patterns = ["_build", "README.md"]
 #
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {
-    "github_url": "https://github.com/devolo/ssllabs",
+    "github_url": "https://github.com/2Fake/ssllabs",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

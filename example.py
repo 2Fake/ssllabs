@@ -7,8 +7,8 @@ from ssllabs import Ssllabs
 from ssllabs.data.host import HostData
 
 HOSTS = [
-    "devolo.com",
-    "www.devolo.com",
+    "ssllabs.com",
+    "www.ssllabs.com",
 ]
 
 
