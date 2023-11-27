@@ -6,12 +6,10 @@ The following guidelines will help you to understand how you can help. They will
 
 ## Table of contents
 
-- [Contributing](#contributing)
-  - [Table of contents](#table-of-contents)
-  - [Reporting an issue](#reporting-an-issue)
-  - [Requesting a feature](#requesting-a-feature)
-  - [Code style guide](#code-style-guide)
-  - [Testing](#testing)
+1. [Reporting an issue](#reporting-an-issue)
+1. [Requesting a feature](#requesting-a-feature)
+1. [Code style guide](#code-style-guide)
+1. [Testing](#testing)
 
 ## Reporting an issue
 
