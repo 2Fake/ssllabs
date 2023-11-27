@@ -24,7 +24,7 @@ license = { file = "LICENSE.md" }
 name = "ssllabs"
 readme = "README.md"
 requires-python = ">= 3.8"
-urls = {changelog = "https://github.com/devolo/ssllabs/CHANGELOG.md", homepage = "https://github.com/devolo/ssllabs"}
+urls = {changelog = "https://github.com/2Fake/ssllabs/CHANGELOG.md", homepage = "https://github.com/2Fake/ssllabs"}
 
 [project.optional-dependencies]
 dev = [
