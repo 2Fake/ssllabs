@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 Markus Bond and Guido Schmitz
+Copyright (c) 2023 Markus Bong and Guido Schmitz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
