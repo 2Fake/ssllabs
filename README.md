@@ -31,7 +31,7 @@ pip install ssllabs
 First, you need to get the sources.
 
 ```bash
-git clone git@github.com:devolo/ssllabs.git
+git clone git@github.com:2Fake/ssllabs.git
 ```
 
 Then you need to take care of the requirements.
@@ -54,7 +54,7 @@ from ssllabs import Ssllabs
 
 async def analyze():
     ssllabs = Ssllabs()
-    return await ssllabs.analyze(host="devolo.de")
+    return await ssllabs.analyze(host="ssllabs.com")
 
 asyncio.run(analyze())
 ```
@@ -68,7 +68,7 @@ from ssllabs import Ssllabs
 
 async def analyze():
     ssllabs = Ssllabs()
-    return await ssllabs.analyze(host="devolo.de", from_cache=True, max_age=1)
+    return await ssllabs.analyze(host="ssllabs.com", from_cache=True, max_age=1)
 
 asyncio.run(analyze())
 ```
@@ -139,7 +139,7 @@ This will give you a [StatusCodes object](https://github.com/ssllabs/ssllabs-sca
 
 ### Example to print the grade of multiple servers
 
-If you are just interested in the grade of servers, you can take [this example](https://github.com/devolo/ssllabs/blob/master/example.py) as a starting point. Just exchange the list of hosts you want to query.
+If you are just interested in the grade of servers, you can take [this example](https://github.com/2Fake/ssllabs/blob/main/example.py) as a starting point. Just exchange the list of hosts you want to query.
 
 ## Low level usage
 
@@ -152,7 +152,7 @@ from ssllabs.api import Endpoint
 
 async def get_grade():
     api = Endpoint()
-    endpoint = await api.get(host="devolo.de", s="195.201.179.93")
+    endpoint = await api.get(host="ssllabs.com", s="64.41.200.100")
     return endpoint.grade
 
 asyncio.run(get_grade())
@@ -177,6 +177,6 @@ from ssllabs import Ssllabs
 async def analyze():
     async with AsyncClient(proxies="http://localhost:8030") as client:
         ssllabs = Ssllabs(client)
-        return await ssllabs.analyze(host="devolo.de")
+        return await ssllabs.analyze(host="ssllabs.com")
 
 asyncio.run(analyze())
