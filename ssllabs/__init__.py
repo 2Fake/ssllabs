@@ -1,8 +1,5 @@
 """Qualys SSL Labs API in Python."""
-try:
-    from importlib.metadata import PackageNotFoundError, version
-except ImportError:
-    from importlib_metadata import PackageNotFoundError, version  # type: ignore
+from importlib.metadata import PackageNotFoundError, version
 
 from .ssllabs import Ssllabs
 

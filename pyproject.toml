@@ -1,3 +1,48 @@
+[build-system]
+requires = ["setuptools>=65", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+authors = [
+    { name = "Markus Bong", email = "m.bong@famabo.de" },
+    { name = "Guido Schmitz", email = "guido.schmitz@fedaix.de"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+description="Qualys SSL Labs API in Python"
+dependencies = [
+    "dacite",
+    "httpx"
+]
+dynamic = [
+    "version",
+]
+license = { file = "LICENSE.md" }
+name = "ssllabs"
+readme = "README.md"
+requires-python = ">= 3.8"
+urls = {changelog = "https://github.com/2Fake/ssllabs/CHANGELOG.md", homepage = "https://github.com/2Fake/ssllabs"}
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+]
+docs = [
+    "m2r2",
+    "pydata_sphinx_theme",
+    "sphinx",
+]
+test = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-httpx",
+    "pytest-mock",
+]
+
 [tool.black]
 line-length = 127
 
@@ -11,3 +56,8 @@ profile = "black"
 
 [tool.mypy]
 ignore_missing_imports = true
+
+[tool.setuptools]
+packages = { find = {exclude=["docs*", "tests*"]} }
+
+[tool.setuptools_scm]
