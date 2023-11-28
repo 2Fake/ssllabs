@@ -15,9 +15,10 @@ HOSTS = [
 async def analyze(hosts: List[str]) -> List[HostData]:
     """Analyze servers."""
     ssllabs = Ssllabs()
+    await ssllabs.register()
     if not await ssllabs.availability():
         raise
-    return await asyncio.gather(*[ssllabs.analyze(host=host) for host in hosts])
+    # return await asyncio.gather(*[ssllabs.analyze(host=host) for host in hosts])
 
 
 if __name__ == "__main__":

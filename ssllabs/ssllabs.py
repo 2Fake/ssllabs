@@ -4,6 +4,8 @@ from typing import Optional
 
 from httpx import AsyncClient, ConnectTimeout, HTTPStatusError, ReadError, ReadTimeout
 
+from ssllabs.api.register import Register
+
 from .api import Analyze, Info, RootCertsRaw, StatusCodes
 from .data.host import HostData
 from .data.info import InfoData
@@ -92,6 +94,15 @@ class Ssllabs:
         """
         i = Info(self._client)
         return await i.get()
+
+    async def register(
+        self, first_name="John", last_name="Doe", email="jdoe@someoraganizationemail3.com", organization="Some Organization"
+    ):
+        """
+        Register a new user.
+        """
+        r = Register(self._client)
+        return await r.register(first_name, last_name, email, organization)
 
     async def root_certs(self, trust_store: TrustStore = TrustStore.MOZILLA) -> str:
         """
