@@ -41,7 +41,7 @@ class Ssllabs:
             self._logger.info("SSL Labs servers are up an running.")
             return True
 
-    async def analyze(
+    async def analyze(  # noqa: PLR0913
         self,
         host: str,
         *,
