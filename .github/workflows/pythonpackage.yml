@@ -34,6 +34,8 @@ jobs:
         python-version: "3.8"
     - name: Lint with ruff
       uses: chartboost/ruff-action@v1.0.0
+      with:
+        src: "./ssllabs"
     - name: Lint with mypy
       run: |
         pip install mypy types-setuptools
