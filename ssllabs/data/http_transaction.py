@@ -20,13 +20,13 @@ class HttpTransactionData:
     requestLine: Optional[str]
     """The entire request line as a single field"""
 
-    requestHeaders: Optional[List[str]]
+    requestHeaders: List[str]
     """An array of request HTTP headers, each with name and value"""
 
     responseLine: Optional[str]
     """The entire response line as a single field"""
 
-    responseHeadersRaw: Optional[List[str]]
+    responseHeadersRaw: List[str]
     """All response headers as a single field (useful if the headers are malformed)"""
 
     responseHeaders: List[Dict]
