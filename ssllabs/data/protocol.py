@@ -1,7 +1,6 @@
 """Protocol."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -21,11 +20,11 @@ class ProtocolData:
     version: str
     """Protocol version, e.g. 1.2, 1.1 etc"""
 
-    v2SuitesDisabled: bool | None
+    v2SuitesDisabled: Optional[bool]
     """
     Some servers have SSLv2 protocol enabled, but with all SSLv2 cipher suites disabled. In that case, this field is set to
     True.
     """
 
-    q: int | None
+    q: Optional[int]
     """0 if the protocol is insecure"""

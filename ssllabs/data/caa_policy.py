@@ -1,7 +1,6 @@
 """CAA Policy."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List
 
 from .caa_record import CaaRecordData
 
@@ -17,5 +16,5 @@ class CaaPolicyData:
     policyHostname: str
     """hostname where policy is located"""
 
-    caaRecords: list[CaaRecordData]
+    caaRecords: List[CaaRecordData]
     """List of supported CAARecord"""

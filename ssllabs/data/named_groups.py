@@ -1,7 +1,6 @@
 """NamedGroup."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List, Optional
 
 from .named_group import NamedGroupData
 
@@ -14,8 +13,8 @@ class NamedGroupsData:
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#namedgroups
     """
 
-    list: list[NamedGroupData]
+    list: List[NamedGroupData]
     """An array of NamedGroup objects"""
 
-    preference: bool | None
+    preference: Optional[bool]
     """True if the server has preferred curves that it uses first"""

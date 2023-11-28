@@ -1,7 +1,6 @@
 """HSTS Preload."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -21,8 +20,8 @@ class HstsPreloadData:
     status: str
     """preload status"""
 
-    error: str | None
+    error: Optional[str]
     """Error message, when status is 'error'"""
 
-    sourceTime: int | None
+    sourceTime: Optional[int]
     """Time, as a Unix timestamp, when the preload database was retrieved"""

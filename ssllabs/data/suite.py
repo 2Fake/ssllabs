@@ -1,7 +1,6 @@
 """Suite."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -21,29 +20,29 @@ class SuiteData:
     cipherStrength: int
     """Suite strength (e.g., 128)"""
 
-    kxType: str | None
+    kxType: Optional[str]
     """Key exchange type (e.g., ECDH)"""
 
-    kxStrength: int | None
+    kxStrength: Optional[int]
     """Key exchange strength, in RSA-equivalent bits"""
 
-    dhP: int | None
+    dhP: Optional[int]
     """DH params, p component"""
 
-    dhG: int | None
+    dhG: Optional[int]
     """DH params, g component"""
 
-    dhYs: int | None
+    dhYs: Optional[int]
     """DH params, Ys component"""
 
-    namedGroupBits: int | None
+    namedGroupBits: Optional[int]
     """EC bits"""
 
-    namedGroupId: int | None
+    namedGroupId: Optional[int]
     """EC curve ID"""
 
-    namedGroupName: str | None
+    namedGroupName: Optional[str]
     """EC curve name"""
 
-    q: int | None
+    q: Optional[int]
     """Flag for suite insecure or weak. Not present if suite is strong or good"""

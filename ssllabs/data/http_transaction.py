@@ -1,7 +1,6 @@
 """HTTP Transaction."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Dict, List, Optional
 
 
 @dataclass
@@ -15,22 +14,22 @@ class HttpTransactionData:
     requestUrl: str
     """Request URL"""
 
-    statusCode: int | None
+    statusCode: Optional[int]
     """Response status code"""
 
-    requestLine: str | None
+    requestLine: Optional[str]
     """The entire request line as a single field"""
 
-    requestHeaders: list[str]
+    requestHeaders: Optional[List[str]]
     """An array of request HTTP headers, each with name and value"""
 
-    responseLine: str | None
+    responseLine: Optional[str]
     """The entire response line as a single field"""
 
-    responseHeadersRaw: list[str]
+    responseHeadersRaw: Optional[List[str]]
     """All response headers as a single field (useful if the headers are malformed)"""
 
-    responseHeaders: list[dict]
+    responseHeaders: List[Dict]
     """An array of response HTTP headers, each with name and value"""
 
     fragileServer: bool

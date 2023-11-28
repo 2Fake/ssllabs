@@ -1,7 +1,6 @@
 """Simulation."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Optional
 
 from .sim_client import SimClientData
 
@@ -20,56 +19,56 @@ class SimulationData:
     errorCode: int
     """Zero if handshake was successful, 1 if it was not."""
 
-    errorMessage: str | None
+    errorMessage: Optional[str]
     """Error message if simulation has failed."""
 
     attempts: int
     """Always 1 with the current implementation."""
 
-    certChainId: str | None
+    certChainId: Optional[str]
     """ID of the certificate chain."""
 
-    protocolId: int | None
+    protocolId: Optional[int]
     """Negotiated protocol ID."""
 
-    suiteId: int | None
+    suiteId: Optional[int]
     """Negotiated suite ID."""
 
-    suiteName: str | None
+    suiteName: Optional[str]
     """Negotiated suite Name."""
 
-    kxType: str | None
+    kxType: Optional[str]
     """Negotiated key exchange, for example 'ECDH'."""
 
-    kxStrength: int | None
+    kxStrength: Optional[int]
     """Negotiated key exchange strength, in RSA-equivalent bits."""
 
-    dhBits: int | None
+    dhBits: Optional[int]
     """Strength of DH params (e.g., 1024)"""
 
-    dhP: int | None
+    dhP: Optional[int]
     """DH params, p component"""
 
-    dhG: int | None
+    dhG: Optional[int]
     """DH params, g component"""
 
-    dhYs: int | None
+    dhYs: Optional[int]
     """DH params, Ys component"""
 
-    namedGroupBits: int | None
+    namedGroupBits: Optional[int]
     """When ECDHE is negotiated, length of EC parameters."""
 
-    namedGroupId: int | None
+    namedGroupId: Optional[int]
     """When ECDHE is negotiated, EC curve ID."""
 
-    namedGroupName: str | None
+    namedGroupName: Optional[str]
     """When ECDHE is negotiated, EC curve nanme (e.g., 'secp256r1')."""
 
-    keyAlg: str | None
+    keyAlg: Optional[str]
     """Connection certificate key algorithsm (e.g., 'RSA')."""
 
-    keySize: int | None
+    keySize: Optional[int]
     """Connection certificate key size (e.g., 2048)."""
 
-    sigAlg: str | None
+    sigAlg: Optional[str]
     """Connection certificate signature algorithm (e.g, 'SHA256withRSA')."""

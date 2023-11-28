@@ -1,7 +1,6 @@
 """Trust."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -15,8 +14,8 @@ class TrustData:
     rootStore: str
     """this field shows the Trust store being used (eg. 'Mozilla')"""
 
-    isTrusted: bool | None
+    isTrusted: Optional[bool]
     """True if trusted against above rootStore"""
 
-    trustErrorMessage: str | None
+    trustErrorMessage: Optional[str]
     """Shows the error message if any"""

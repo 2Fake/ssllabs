@@ -1,7 +1,6 @@
 """Certificate Chain."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List
 
 from .trust_path import TrustPathData
 
@@ -17,13 +16,13 @@ class CertificateChainData:
     id: str
     """Certificate chain ID"""
 
-    certIds: list[str]
+    certIds: List[str]
     """
     List of IDs of each certificate, representing the chain certificates in the order in which they were retrieved from the
     server
     """
 
-    trustPaths: list[TrustPathData]
+    trustPaths: List[TrustPathData]
     """Trust path object"""
 
     issues: int

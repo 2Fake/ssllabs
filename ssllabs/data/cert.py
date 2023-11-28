@@ -1,7 +1,6 @@
 """Cert."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List, Optional
 
 from .caa_policy import CaaPolicyData
 
@@ -23,10 +22,10 @@ class CertData:
     serialNumber: str
     """Certificate serial number (hex-encoded)"""
 
-    commonNames: list[str]
+    commonNames: List[str]
     """Common names extracted from the subject"""
 
-    altNames: list[str] | None
+    altNames: Optional[List[str]]
     """Alternative names"""
 
     notBefore: int
@@ -44,10 +43,10 @@ class CertData:
     revocationInfo: int
     """A number that represents revocation information present in the certificate"""
 
-    crlURIs: list[str] | None
+    crlURIs: Optional[List[str]]
     """CRL URIs extracted from the certificate"""
 
-    ocspURIs: list[str] | None
+    ocspURIs: Optional[List[str]]
     """OCSP URIs extracted from the certificate"""
 
     revocationStatus: int
@@ -59,10 +58,10 @@ class CertData:
     ocspRevocationStatus: int
     """Same as revocationStatus, but only for the OCSP information (if any)."""
 
-    dnsCaa: bool | None
+    dnsCaa: Optional[bool]
     """True if CAA is supported else false."""
 
-    caaPolicy: CaaPolicyData | None
+    caaPolicy: Optional[CaaPolicyData]
     """CAA Policy, Null if CAA is not supported"""
 
     mustStaple: bool
@@ -71,10 +70,10 @@ class CertData:
     sgc: int
     """Server Gated Cryptography support"""
 
-    validationType: str | None
+    validationType: Optional[str]
     """E for Extended Validation certificates"""
 
-    issues: int | None
+    issues: Optional[int]
     """list of certificate issues, one bit per issue"""
 
     sct: bool
@@ -98,7 +97,7 @@ class CertData:
     keyStrength: int
     """Key strength, in equivalent RSA bits"""
 
-    keyKnownDebianInsecure: bool | None
+    keyKnownDebianInsecure: Optional[bool]
     """True if debian flaw is found, else false"""
 
     raw: str

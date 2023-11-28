@@ -1,7 +1,6 @@
 """Simulation Objects."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List
 
 from .simulation import SimulationData
 
@@ -14,5 +13,5 @@ class SimDetailsData:
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#simdetails
     """
 
-    results: list[SimulationData]
+    results: List[SimulationData]
     """Instances of Simulation."""

@@ -1,7 +1,6 @@
 """SPKP Policy."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Dict, List, Optional
 
 
 @dataclass
@@ -15,23 +14,23 @@ class StaticPkpPolicyData:
     status: str
     """SPKP status"""
 
-    error: str | None
+    error: Optional[str]
     """Error message, when the policy is invalid"""
 
-    includeSubDomains: bool | None
+    includeSubDomains: Optional[bool]
     """True if the includeSubDomains directive is set else false"""
 
-    reportUri: str | None
+    reportUri: Optional[str]
     """The report-uri value from the policy"""
 
-    pins: list[dict]
+    pins: List[Dict]
     """List of all pins used by the policy"""
 
-    matchedPins: list[dict]
+    matchedPins: List[Dict]
     """List of pins that match the current configuration"""
 
-    forbiddenPins: list[dict]
+    forbiddenPins: List[Dict]
     """List of all forbidden pins used by policy"""
 
-    matchedForbiddenPins: list[dict]
+    matchedForbiddenPins: List[Dict]
     """List of forbidden pins that match the current configuration"""

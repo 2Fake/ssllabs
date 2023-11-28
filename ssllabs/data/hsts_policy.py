@@ -1,7 +1,6 @@
 """HSTS Policy."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Dict, Optional
 
 
 @dataclass
@@ -15,23 +14,23 @@ class HstsPolicyData:
     LONG_MAX_AGE: int
     """This constant contains what SSL Labs considers to be sufficiently large max-age value"""
 
-    header: str | None
+    header: Optional[str]
     """The contents of the HSTS response header, if present"""
 
     status: str
     """HSTS status"""
 
-    error: str | None
+    error: Optional[str]
     """Error message when error is encountered, null otherwise"""
 
-    maxAge: int | None
+    maxAge: Optional[int]
     """The max-age value specified in the policy; null if policy is missing or invalid or on parsing error"""
 
-    includeSubDomains: bool | None
+    includeSubDomains: Optional[bool]
     """True if the includeSubDomains directive is set; null otherwise"""
 
-    preload: bool | None
+    preload: Optional[bool]
     """True if the preload directive is set; null otherwise"""
 
-    directives: dict | None
+    directives: Optional[Dict]
     """List of raw policy directives"""

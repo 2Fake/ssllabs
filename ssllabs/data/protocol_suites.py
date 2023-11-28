@@ -1,7 +1,6 @@
 """Protocol suites."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List, Optional
 
 from .suite import SuiteData
 
@@ -17,15 +16,15 @@ class ProtocolSuitesData:
     protocol: int
     """Protocol version."""
 
-    list: list[SuiteData]
+    list: List[SuiteData]
     """List of Suite objects"""
 
-    preference: bool | None
+    preference: Optional[bool]
     """
     True if the server actively selects cipher suites; if null, we were not able to determine if the server has a preference
     """
 
-    chaCha20Preference: bool | None
+    chaCha20Preference: Optional[bool]
     """
     True if the server takes into account client preferences when deciding if to use ChaCha20 suites. null, we were not able
     to determine if the server has a chacha preference.

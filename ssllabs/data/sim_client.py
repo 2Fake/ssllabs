@@ -1,7 +1,6 @@
 """Simulation Client."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -18,7 +17,7 @@ class SimClientData:
     name: str
     """Name of the client (e.g., Chrome)."""
 
-    platform: str | None
+    platform: Optional[str]
     """Name of the platform (e.g., XP SP3)."""
 
     version: str

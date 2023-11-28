@@ -1,7 +1,6 @@
 """Host."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List, Optional
 
 from .cert import CertData
 from .endpoint import EndpointData
@@ -30,13 +29,13 @@ class HostData:
     status: str
     """Assessment status; possible values: DNS, ERROR, IN_PROGRESS, and READY."""
 
-    statusMessage: str | None
+    statusMessage: Optional[str]
     """Status message in English. When status is ERROR, this field will contain an error message."""
 
     startTime: int
     """Assessment starting time, in milliseconds since 1970"""
 
-    testTime: int | None
+    testTime: Optional[int]
     """Assessment completion time, in milliseconds since 1970"""
 
     engineVersion: str
@@ -45,23 +44,23 @@ class HostData:
     criteriaVersion: str
     """Grading criteria version (e.g., '2009l')"""
 
-    cacheExpiryTime: int | None
+    cacheExpiryTime: Optional[int]
     """
     When will the assessment results expire from the cache (typically set only for assessment with errors; otherwise the
     results stay in the cache for as long as there's sufficient room)
     """
 
-    certHostnames: list[str] | None
+    certHostnames: Optional[List[str]]
     """
     The list of certificate hostnames collected from the certificates seen during assessment. The hostnames may not be valid.
     This field is available only if the server certificate doesn't match the requested hostname. In that case, this field
     saves you some time as you don't have to inspect the certificates yourself to find out what valid hostnames might be.
     """
 
-    endpoints: list[EndpointData] | None
+    endpoints: Optional[List[EndpointData]]
     """List of Endpoint objects"""
 
-    certs: list[CertData] | None
+    certs: Optional[List[CertData]]
     """
     A list of Cert object, representing the chain certificates in the order in which they were retrieved from the server.
     """

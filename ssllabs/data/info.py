@@ -1,7 +1,6 @@
 """Info."""
-from __future__ import annotations
-
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass
@@ -30,7 +29,7 @@ class InfoData:
     the cool-off expires, otherwise you'll get a 429.
     """
 
-    messages: list[str]
+    messages: List[str]
     """
     A list of messages (strings). Messages can be public (sent to everyone) and private (sent only to the invoking client).
     Private messages are prefixed with '[Private]'.
