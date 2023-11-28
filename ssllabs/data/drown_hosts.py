@@ -1,9 +1,11 @@
+"""Drown Hosts."""
 from dataclasses import dataclass
 
 
 @dataclass
 class DrownHostsData:
-    """Dataclass for Drown Hosts objects.
+    """
+    Dataclass for Drown Hosts objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#drownhosts
     """

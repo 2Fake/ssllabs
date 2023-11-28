@@ -1,12 +1,15 @@
+"""Certificate Chain."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import List
 
 from .trust_path import TrustPathData
 
 
 @dataclass
 class CertificateChainData:
-    """Dataclass for certificate chain objects.
+    """
+    Dataclass for certificate chain objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#certificatechain
     """
@@ -14,13 +17,13 @@ class CertificateChainData:
     id: str
     """Certificate chain ID"""
 
-    certIds: List[str]
+    certIds: list[str]
     """
     List of IDs of each certificate, representing the chain certificates in the order in which they were retrieved from the
     server
     """
 
-    trustPaths: List[TrustPathData]
+    trustPaths: list[TrustPathData]
     """Trust path object"""
 
     issues: int

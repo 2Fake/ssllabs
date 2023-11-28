@@ -1,10 +1,13 @@
+"""HSTS Preload."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class HstsPreloadData:
-    """Dataclass for HSTS Preload objects.
+    """
+    Dataclass for HSTS Preload objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#hstspreload
     """
@@ -18,8 +21,8 @@ class HstsPreloadData:
     status: str
     """preload status"""
 
-    error: Optional[str]
+    error: str | None
     """Error message, when status is 'error'"""
 
-    sourceTime: Optional[int]
+    sourceTime: int | None
     """Time, as a Unix timestamp, when the preload database was retrieved"""

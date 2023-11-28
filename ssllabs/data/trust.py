@@ -1,10 +1,13 @@
+"""Trust."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class TrustData:
-    """Dataclass for trust objects.
+    """
+    Dataclass for trust objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#trust
     """
@@ -12,8 +15,8 @@ class TrustData:
     rootStore: str
     """this field shows the Trust store being used (eg. 'Mozilla')"""
 
-    isTrusted: Optional[bool]
+    isTrusted: bool | None
     """True if trusted against above rootStore"""
 
-    trustErrorMessage: Optional[str]
+    trustErrorMessage: str | None
     """Shows the error message if any"""

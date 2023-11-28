@@ -1,12 +1,15 @@
+"""Simulation."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Optional
 
 from .sim_client import SimClientData
 
 
 @dataclass
 class SimulationData:
-    """Dataclass for Simulation objects.
+    """
+    Dataclass for Simulation objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#simulation
     """
@@ -17,56 +20,56 @@ class SimulationData:
     errorCode: int
     """Zero if handshake was successful, 1 if it was not."""
 
-    errorMessage: Optional[str]
+    errorMessage: str | None
     """Error message if simulation has failed."""
 
     attempts: int
     """Always 1 with the current implementation."""
 
-    certChainId: Optional[str]
+    certChainId: str | None
     """ID of the certificate chain."""
 
-    protocolId: Optional[int]
+    protocolId: int | None
     """Negotiated protocol ID."""
 
-    suiteId: Optional[int]
+    suiteId: int | None
     """Negotiated suite ID."""
 
-    suiteName: Optional[str]
+    suiteName: str | None
     """Negotiated suite Name."""
 
-    kxType: Optional[str]
+    kxType: str | None
     """Negotiated key exchange, for example 'ECDH'."""
 
-    kxStrength: Optional[int]
+    kxStrength: int | None
     """Negotiated key exchange strength, in RSA-equivalent bits."""
 
-    dhBits: Optional[int]
+    dhBits: int | None
     """Strength of DH params (e.g., 1024)"""
 
-    dhP: Optional[int]
+    dhP: int | None
     """DH params, p component"""
 
-    dhG: Optional[int]
+    dhG: int | None
     """DH params, g component"""
 
-    dhYs: Optional[int]
+    dhYs: int | None
     """DH params, Ys component"""
 
-    namedGroupBits: Optional[int]
+    namedGroupBits: int | None
     """When ECDHE is negotiated, length of EC parameters."""
 
-    namedGroupId: Optional[int]
+    namedGroupId: int | None
     """When ECDHE is negotiated, EC curve ID."""
 
-    namedGroupName: Optional[str]
+    namedGroupName: str | None
     """When ECDHE is negotiated, EC curve nanme (e.g., 'secp256r1')."""
 
-    keyAlg: Optional[str]
+    keyAlg: str | None
     """Connection certificate key algorithsm (e.g., 'RSA')."""
 
-    keySize: Optional[int]
+    keySize: int | None
     """Connection certificate key size (e.g., 2048)."""
 
-    sigAlg: Optional[str]
+    sigAlg: str | None
     """Connection certificate signature algorithm (e.g, 'SHA256withRSA')."""

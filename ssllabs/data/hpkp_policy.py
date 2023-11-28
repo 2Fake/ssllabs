@@ -1,37 +1,40 @@
+"""HPKP Policy."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Dict, List, Optional
 
 
 @dataclass
 class HpkpPolicyData:
-    """Dataclass for HPKP Policy objects.
+    """
+    Dataclass for HPKP Policy objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#hpkppolicy
     """
 
-    header: Optional[str]
+    header: str | None
     """The contents of the HPKP response header, if present"""
 
     status: str
     """HPKP status"""
 
-    error: Optional[str]
+    error: str | None
     """Error message, when the policy is invalid"""
 
-    maxAge: Optional[int]
+    maxAge: int | None
     """The max-age value from the policy"""
 
-    includeSubDomains: Optional[bool]
+    includeSubDomains: bool | None
     """True if the includeSubDomains directive is set; null otherwise"""
 
-    reportUri: Optional[str]
+    reportUri: str | None
     """The report-uri value from the policy"""
 
-    pins: List[Dict]
+    pins: list[dict]
     """List of all pins used by the policy"""
 
-    matchedPins: List[Dict]
+    matchedPins: list[dict]
     """List of pins that match the current configuration"""
 
-    directives: List[Dict]
+    directives: list[dict]
     """List of raw policy directives (name-value pairs)"""

@@ -1,10 +1,13 @@
+"""Info."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import List
 
 
 @dataclass
 class InfoData:
-    """Dataclass for info objects.
+    """
+    Dataclass for info objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#info
     """
@@ -27,7 +30,7 @@ class InfoData:
     the cool-off expires, otherwise you'll get a 429.
     """
 
-    messages: List[str]
+    messages: list[str]
     """
     A list of messages (strings). Messages can be public (sent to everyone) and private (sent only to the invoking client).
     Private messages are prefixed with '[Private]'.

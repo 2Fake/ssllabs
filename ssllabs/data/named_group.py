@@ -1,9 +1,11 @@
+"""NamedGroup."""
 from dataclasses import dataclass
 
 
 @dataclass
 class NamedGroupData:
-    """Dataclass for NamedGroup objects.
+    """
+    Dataclass for NamedGroup objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#namedgroup
     """

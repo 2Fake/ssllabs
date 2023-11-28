@@ -1,10 +1,13 @@
+"""SPKP Policy."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Dict, List, Optional
 
 
 @dataclass
 class StaticPkpPolicyData:
-    """Dataclass for SPKP Policy objects.
+    """
+    Dataclass for SPKP Policy objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#staticpkppolicy
     """
@@ -12,23 +15,23 @@ class StaticPkpPolicyData:
     status: str
     """SPKP status"""
 
-    error: Optional[str]
+    error: str | None
     """Error message, when the policy is invalid"""
 
-    includeSubDomains: Optional[bool]
+    includeSubDomains: bool | None
     """True if the includeSubDomains directive is set else false"""
 
-    reportUri: Optional[str]
+    reportUri: str | None
     """The report-uri value from the policy"""
 
-    pins: List[Dict]
+    pins: list[dict]
     """List of all pins used by the policy"""
 
-    matchedPins: List[Dict]
+    matchedPins: list[dict]
     """List of pins that match the current configuration"""
 
-    forbiddenPins: List[Dict]
+    forbiddenPins: list[dict]
     """List of all forbidden pins used by policy"""
 
-    matchedForbiddenPins: List[Dict]
+    matchedForbiddenPins: list[dict]
     """List of forbidden pins that match the current configuration"""

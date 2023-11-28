@@ -1,10 +1,13 @@
+"""Suite."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class SuiteData:
-    """Dataclass for suite objects.
+    """
+    Dataclass for suite objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#suite
     """
@@ -18,29 +21,29 @@ class SuiteData:
     cipherStrength: int
     """Suite strength (e.g., 128)"""
 
-    kxType: Optional[str]
+    kxType: str | None
     """Key exchange type (e.g., ECDH)"""
 
-    kxStrength: Optional[int]
+    kxStrength: int | None
     """Key exchange strength, in RSA-equivalent bits"""
 
-    dhP: Optional[int]
+    dhP: int | None
     """DH params, p component"""
 
-    dhG: Optional[int]
+    dhG: int | None
     """DH params, g component"""
 
-    dhYs: Optional[int]
+    dhYs: int | None
     """DH params, Ys component"""
 
-    namedGroupBits: Optional[int]
+    namedGroupBits: int | None
     """EC bits"""
 
-    namedGroupId: Optional[int]
+    namedGroupId: int | None
     """EC curve ID"""
 
-    namedGroupName: Optional[str]
+    namedGroupName: str | None
     """EC curve name"""
 
-    q: Optional[int]
+    q: int | None
     """Flag for suite insecure or weak. Not present if suite is strong or good"""

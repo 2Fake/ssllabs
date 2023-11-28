@@ -1,12 +1,15 @@
+"""Cert."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import List, Optional
 
 from .caa_policy import CaaPolicyData
 
 
 @dataclass
 class CertData:
-    """Dataclass for Cert objects.
+    """
+    Dataclass for Cert objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#cert
     """
@@ -20,10 +23,10 @@ class CertData:
     serialNumber: str
     """Certificate serial number (hex-encoded)"""
 
-    commonNames: List[str]
+    commonNames: list[str]
     """Common names extracted from the subject"""
 
-    altNames: Optional[List[str]]
+    altNames: list[str] | None
     """Alternative names"""
 
     notBefore: int
@@ -41,10 +44,10 @@ class CertData:
     revocationInfo: int
     """A number that represents revocation information present in the certificate"""
 
-    crlURIs: Optional[List[str]]
+    crlURIs: list[str] | None
     """CRL URIs extracted from the certificate"""
 
-    ocspURIs: Optional[List[str]]
+    ocspURIs: list[str] | None
     """OCSP URIs extracted from the certificate"""
 
     revocationStatus: int
@@ -56,10 +59,10 @@ class CertData:
     ocspRevocationStatus: int
     """Same as revocationStatus, but only for the OCSP information (if any)."""
 
-    dnsCaa: Optional[bool]
+    dnsCaa: bool | None
     """True if CAA is supported else false."""
 
-    caaPolicy: Optional[CaaPolicyData]
+    caaPolicy: CaaPolicyData | None
     """CAA Policy, Null if CAA is not supported"""
 
     mustStaple: bool
@@ -68,10 +71,10 @@ class CertData:
     sgc: int
     """Server Gated Cryptography support"""
 
-    validationType: Optional[str]
+    validationType: str | None
     """E for Extended Validation certificates"""
 
-    issues: Optional[int]
+    issues: int | None
     """list of certificate issues, one bit per issue"""
 
     sct: bool
@@ -95,7 +98,7 @@ class CertData:
     keyStrength: int
     """Key strength, in equivalent RSA bits"""
 
-    keyKnownDebianInsecure: Optional[bool]
+    keyKnownDebianInsecure: bool | None
     """True if debian flaw is found, else false"""
 
     raw: str

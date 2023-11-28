@@ -1,5 +1,7 @@
+"""Host."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import List, Optional
 
 from .cert import CertData
 from .endpoint import EndpointData
@@ -7,7 +9,8 @@ from .endpoint import EndpointData
 
 @dataclass
 class HostData:
-    """Dataclass for host objects.
+    """
+    Dataclass for host objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#host
     """
@@ -27,13 +30,13 @@ class HostData:
     status: str
     """Assessment status; possible values: DNS, ERROR, IN_PROGRESS, and READY."""
 
-    statusMessage: Optional[str]
+    statusMessage: str | None
     """Status message in English. When status is ERROR, this field will contain an error message."""
 
     startTime: int
     """Assessment starting time, in milliseconds since 1970"""
 
-    testTime: Optional[int]
+    testTime: int | None
     """Assessment completion time, in milliseconds since 1970"""
 
     engineVersion: str
@@ -42,23 +45,23 @@ class HostData:
     criteriaVersion: str
     """Grading criteria version (e.g., '2009l')"""
 
-    cacheExpiryTime: Optional[int]
+    cacheExpiryTime: int | None
     """
     When will the assessment results expire from the cache (typically set only for assessment with errors; otherwise the
     results stay in the cache for as long as there's sufficient room)
     """
 
-    certHostnames: Optional[List[str]]
+    certHostnames: list[str] | None
     """
     The list of certificate hostnames collected from the certificates seen during assessment. The hostnames may not be valid.
     This field is available only if the server certificate doesn't match the requested hostname. In that case, this field
     saves you some time as you don't have to inspect the certificates yourself to find out what valid hostnames might be.
     """
 
-    endpoints: Optional[List[EndpointData]]
+    endpoints: list[EndpointData] | None
     """List of Endpoint objects"""
 
-    certs: Optional[List[CertData]]
+    certs: list[CertData] | None
     """
     A list of Cert object, representing the chain certificates in the order in which they were retrieved from the server.
     """

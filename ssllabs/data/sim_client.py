@@ -1,10 +1,13 @@
+"""Simulation Client."""
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class SimClientData:
-    """Dataclass for Simulation Client objects.
+    """
+    Dataclass for Simulation Client objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#simclient
     """
@@ -15,7 +18,7 @@ class SimClientData:
     name: str
     """Name of the client (e.g., Chrome)."""
 
-    platform: Optional[str]
+    platform: str | None
     """Name of the platform (e.g., XP SP3)."""
 
     version: str
