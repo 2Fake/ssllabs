@@ -1,7 +1,8 @@
 """Get grade of multiple servers."""
+from __future__ import annotations
+
 import asyncio
 import logging
-from typing import List
 
 from ssllabs import Ssllabs
 from ssllabs.data.host import HostData
@@ -12,7 +13,7 @@ HOSTS = [
 ]
 
 
-async def analyze(hosts: List[str]) -> List[HostData]:
+async def analyze(hosts: list[str]) -> list[HostData]:
     """Analyze servers."""
     ssllabs = Ssllabs()
     if not await ssllabs.availability():
