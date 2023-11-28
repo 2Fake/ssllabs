@@ -1,20 +1,26 @@
+"""High level implementation of the SSL Labs API."""
+from __future__ import annotations
+
 import asyncio
 import logging
-from typing import Optional
+from typing import TYPE_CHECKING
 
 from httpx import AsyncClient, ConnectTimeout, HTTPStatusError, ReadError, ReadTimeout
 
 from .api import Analyze, Info, RootCertsRaw, StatusCodes
-from .data.host import HostData
-from .data.info import InfoData
-from .data.status_codes import StatusCodesData
 from .trust_store import TrustStore
+
+if TYPE_CHECKING:
+    from .data.host import HostData
+    from .data.info import InfoData
+    from .data.status_codes import StatusCodesData
 
 
 class Ssllabs:
-    """Highlevel methods to interact with the SSL Labs Assessment APIs."""
+    """High level methods to interact with the SSL Labs Assessment APIs."""
 
-    def __init__(self, client: Optional[AsyncClient] = None):
+    def __init__(self, client: AsyncClient | None = None) -> None:
+        """Initialize SSL Labs."""
         self._client = client
         self._logger = logging.getLogger("ssllabs.Ssllabs")
         self._semaphore = asyncio.Semaphore(1)
@@ -28,19 +34,21 @@ class Ssllabs:
         i = Info(self._client)
         try:
             await i.get()
+        except (HTTPStatusError, ReadError, ReadTimeout, ConnectTimeout) as ex:
+            self._logger.error(ex)  # noqa: TRY400
+            return False
+        else:
             self._logger.info("SSL Labs servers are up an running.")
             return True
-        except (HTTPStatusError, ReadError, ReadTimeout, ConnectTimeout) as ex:
-            self._logger.error(ex)
-            return False
 
-    async def analyze(
+    async def analyze(  # noqa: PLR0913
         self,
         host: str,
+        *,
         publish: bool = False,
         ignore_mismatch: bool = False,
         from_cache: bool = False,
-        max_age: Optional[int] = None,
+        max_age: int | None = None,
     ) -> HostData:
         """
         Test a particular host with respect to the cool off and the maximum number of assessments.

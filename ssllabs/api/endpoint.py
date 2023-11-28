@@ -1,17 +1,23 @@
+"""Retrieve detailed endpoint information."""
+from typing import Any
+
 from dacite import from_dict
 
-from ..data.endpoint import EndpointData
+from ssllabs.data.endpoint import EndpointData
+
 from ._api import _Api
 
 
 class Endpoint(_Api):
-    """Retrieve detailed endpoint information.
+    """
+    Retrieve detailed endpoint information.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#retrieve-detailed-endpoint-information
     """
 
-    async def get(self, host: str, s: str, **kwargs) -> EndpointData:
-        """Retrieve detailed endpoint information.
+    async def get(self, host: str, s: str, **kwargs: Any) -> EndpointData:
+        """
+        Retrieve detailed endpoint information.
 
         :param host: Hostname to analyze
         :param s: Endpoint IP address

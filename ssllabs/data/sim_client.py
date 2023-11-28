@@ -1,10 +1,12 @@
+"""Simulation Client."""
 from dataclasses import dataclass
 from typing import Optional
 
 
 @dataclass
 class SimClientData:
-    """Dataclass for Simulation Client objects.
+    """
+    Dataclass for Simulation Client objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#simclient
     """

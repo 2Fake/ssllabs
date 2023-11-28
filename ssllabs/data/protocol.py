@@ -1,10 +1,12 @@
+"""Protocol."""
 from dataclasses import dataclass
 from typing import Optional
 
 
 @dataclass
 class ProtocolData:
-    """Dataclass for protocol objects.
+    """
+    Dataclass for protocol objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol
     """

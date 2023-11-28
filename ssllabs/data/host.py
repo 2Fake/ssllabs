@@ -1,3 +1,4 @@
+"""Host."""
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -7,7 +8,8 @@ from .endpoint import EndpointData
 
 @dataclass
 class HostData:
-    """Dataclass for host objects.
+    """
+    Dataclass for host objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#host
     """

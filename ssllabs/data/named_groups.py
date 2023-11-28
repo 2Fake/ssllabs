@@ -1,3 +1,4 @@
+"""NamedGroup."""
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -6,7 +7,8 @@ from .named_group import NamedGroupData
 
 @dataclass
 class NamedGroupsData:
-    """Dataclass for NamedGroup object lists.
+    """
+    Dataclass for NamedGroup object lists.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#namedgroups
     """

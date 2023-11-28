@@ -1,10 +1,12 @@
+"""StatusCodes."""
 from dataclasses import dataclass
 from typing import Dict
 
 
 @dataclass
 class StatusCodesData:
-    """Dataclass for StatusCodes instances.
+    """
+    Dataclass for StatusCodes instances.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#statuscodes
     """

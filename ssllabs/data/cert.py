@@ -1,3 +1,4 @@
+"""Cert."""
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -6,7 +7,8 @@ from .caa_policy import CaaPolicyData
 
 @dataclass
 class CertData:
-    """Dataclass for Cert objects.
+    """
+    Dataclass for Cert objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#cert
     """

@@ -1,3 +1,4 @@
+"""Endpoint Details."""
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -16,7 +17,8 @@ from .static_pkp_policy import StaticPkpPolicyData
 
 @dataclass
 class EndpointDetailsData:
-    """Dataclass for endpoint detail objects.
+    """
+    Dataclass for endpoint detail objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#endpointdetails
     """

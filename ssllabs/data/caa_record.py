@@ -1,9 +1,11 @@
+"""CAA Record."""
 from dataclasses import dataclass
 
 
 @dataclass
 class CaaRecordData:
-    """Dataclass for CAA Record objects.
+    """
+    Dataclass for CAA Record objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#caarecord
     """

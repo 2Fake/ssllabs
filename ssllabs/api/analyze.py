@@ -1,17 +1,23 @@
+"""Invoke assessment and check progress."""
+from typing import Any
+
 from dacite import from_dict
 
-from ..data.host import HostData
+from ssllabs.data.host import HostData
+
 from ._api import _Api
 
 
 class Analyze(_Api):
-    """Invoke assessment and check progress.
+    """
+    Invoke assessment and check progress.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#invoke-assessment-and-check-progress
     """
 
-    async def get(self, host: str, **kwargs) -> HostData:
-        """Analyze host.
+    async def get(self, host: str, **kwargs: Any) -> HostData:
+        """
+        Analyze host.
 
         :param host: Hostname to analyze
         :key publish: Set to "on" if assessment results should be published on the public results boards; optional, defaults

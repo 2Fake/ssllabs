@@ -1,3 +1,4 @@
+"""Trust Path."""
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -6,7 +7,8 @@ from .trust import TrustData
 
 @dataclass
 class TrustPathData:
-    """Dataclass for trust path objects.
+    """
+    Dataclass for trust path objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#trustpath
     """

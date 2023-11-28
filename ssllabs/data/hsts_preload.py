@@ -1,10 +1,12 @@
+"""HSTS Preload."""
 from dataclasses import dataclass
 from typing import Optional
 
 
 @dataclass
 class HstsPreloadData:
-    """Dataclass for HSTS Preload objects.
+    """
+    Dataclass for HSTS Preload objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#hstspreload
     """

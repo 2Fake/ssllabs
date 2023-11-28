@@ -1,10 +1,12 @@
+"""HSTS Policy."""
 from dataclasses import dataclass
 from typing import Dict, Optional
 
 
 @dataclass
 class HstsPolicyData:
-    """Dataclass for HSTS Policy objects.
+    """
+    Dataclass for HSTS Policy objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#hstspolicy
     """

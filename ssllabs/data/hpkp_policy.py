@@ -1,10 +1,12 @@
+"""HPKP Policy."""
 from dataclasses import dataclass
 from typing import Dict, List, Optional
 
 
 @dataclass
 class HpkpPolicyData:
-    """Dataclass for HPKP Policy objects.
+    """
+    Dataclass for HPKP Policy objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#hpkppolicy
     """

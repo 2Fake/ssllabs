@@ -1,3 +1,4 @@
+"""Protocol suites."""
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -6,7 +7,8 @@ from .suite import SuiteData
 
 @dataclass
 class ProtocolSuitesData:
-    """Dataclass for protocol suites objects.
+    """
+    Dataclass for protocol suites objects.
 
     See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocolsuites
     """
