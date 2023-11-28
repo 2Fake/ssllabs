@@ -8,6 +8,7 @@ from .api import Analyze, Info, RootCertsRaw, StatusCodes
 from .data.host import HostData
 from .data.info import InfoData
 from .data.status_codes import StatusCodesData
+from .trust_store import TrustStore
 
 
 class Ssllabs:
@@ -92,19 +93,14 @@ class Ssllabs:
         i = Info(self._client)
         return await i.get()
 
-    async def root_certs(self, trust_store: int = 1) -> str:
+    async def root_certs(self, trust_store: TrustStore = TrustStore.MOZILLA) -> str:
         """
         Retrieve root certificates.
 
-        :param trust_store: Trust store to return (1-Mozilla, 2-Apple MacOS, 3-Android, 4-Java, 5-Windows)
+        :param trust_store: Trust store to return (Mozilla, MacOS, Android, Java or Windows)
 
         See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#retrieve-root-certificates
         """
-        if not 1 <= trust_store <= 5:
-            raise ValueError(
-                """Trust store not found. Please choose on of the following:
-            1-Mozilla, 2-Apple MacOS, 3-Android, 4-Java, 5-Windows"""
-            )
         rcr = RootCertsRaw(self._client)
         return await rcr.get(trustStore=trust_store)
 

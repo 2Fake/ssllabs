@@ -113,12 +113,6 @@ class TestSsllabs:
             assert root_certs == request.cls.root_certs["rootCerts"]
 
     @pytest.mark.asyncio
-    async def test_root_certs_value_error(self):
-        with pytest.raises(ValueError):
-            ssllabs = Ssllabs()
-            await ssllabs.root_certs(trust_store=6)
-
-    @pytest.mark.asyncio
     async def test_availabile(self, request):
         with patch(
             "ssllabs.api.info.Info.get", new=AsyncMock(return_Value=from_dict(data_class=InfoData, data=request.cls.info))

@@ -2,6 +2,7 @@
 from importlib.metadata import PackageNotFoundError, version
 
 from .ssllabs import Ssllabs
+from .trust_store import TrustStore
 
 __license__ = "MIT"
 
@@ -11,4 +12,4 @@ except PackageNotFoundError:
     # package is not installed
     __version__ = "0.0.0"
 
-__all__ = ["Ssllabs", "__license__", "__version__"]
+__all__ = ["Ssllabs", "TrustStore", "__license__", "__version__"]
