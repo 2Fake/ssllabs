@@ -19,12 +19,6 @@
 				"editor.formatOnPaste": false,
 				"editor.formatOnSave": true,
 				"editor.formatOnType": true,
-				"isort.path": [
-					"/usr/local/bin/isort"
-				],
-				"isort.args": [
-					"--settings-path=/workspaces/ssllabs/setup.cfg"
-				],
 				"python.testing.nosetestsEnabled": false,
 				"python.testing.pytestEnabled": true,
 				"python.testing.unittestEnabled": false,
