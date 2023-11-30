@@ -13,10 +13,6 @@
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash",
 				"python.pythonPath": "/usr/local/bin/python",
-				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-				"python.formatting.provider": "yapf",
 				"[python]": {
 					"editor.defaultFormatter": "charliermarsh.ruff"
 				},
