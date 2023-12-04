@@ -9,8 +9,8 @@ from httpx import AsyncClient, ConnectTimeout, ReadError, ReadTimeout, Transport
 from pytest_httpx import HTTPXMock
 
 from ssllabs import Ssllabs
+from ssllabs.api import Endpoint
 from ssllabs.api._api import SSLLABS_URL
-from ssllabs.api.endpoint import Endpoint
 from ssllabs.data.host import HostData
 from ssllabs.data.info import InfoData
 
