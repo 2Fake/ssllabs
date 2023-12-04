@@ -1,6 +1,6 @@
 {
-    "ipAddress": "195.201.179.93",
-    "serverName": "static.93.179.201.195.clients.your-server.de",
+    "ipAddress": "164.41.200.100",
+    "serverName": "www.ssllabs.com",
     "statusMessage": "Ready",
     "statusDetails": null,
     "statusDetailsMessage": null,
@@ -737,7 +737,7 @@
         "staplingRevocationErrorMessage": null,
         "sniRequired": true,
         "httpStatusCode": 301,
-        "httpForwarding": "https://www.devolo.de",
+        "httpForwarding": "https://www.ssllabs.com",
         "supportsRc4": false,
         "rc4WithModern": false,
         "rc4Only": false,
@@ -2580,28 +2580,28 @@
         "hstsPreloads": [
             {
                 "source": "Chrome",
-                "hostname": "devolo.de",
+                "hostname": "ssllabs.com",
                 "status": "absent",
                 "error": null,
                 "sourceTime": 1611648122625
             },
             {
                 "source": "Edge",
-                "hostname": "devolo.de",
+                "hostname": "ssllabs.com",
                 "status": "absent",
                 "error": null,
                 "sourceTime": 1611648124458
             },
             {
                 "source": "Firefox",
-                "hostname": "devolo.de",
+                "hostname": "ssllabs.com",
                 "status": "absent",
                 "error": null,
                 "sourceTime": 1611648124458
             },
             {
                 "source": "IE",
-                "hostname": "devolo.de",
+                "hostname": "ssllabs.com",
                 "status": "absent",
                 "error": null,
                 "sourceTime": 1611648124458
@@ -2641,11 +2641,11 @@
         },
         "httpTransactions": [
             {
-                "requestUrl": "https://devolo.de/",
+                "requestUrl": "https://ssllabs.com/",
                 "statusCode": 301,
                 "requestLine": "GET / HTTP/1.1",
                 "requestHeaders": [
-                    "Host: devolo.de",
+                    "Host: ssllabs.com",
                     "User-Agent: SSL Labs (https://www.ssllabs.com/about/assessment.html); on behalf of XXX.XXX.XXX.XXX",
                     "Accept: */*",
                     "Connection: Close"
@@ -2657,7 +2657,7 @@
                     "Content-Type: text/html",
                     "Content-Length: 178",
                     "Connection: close",
-                    "Location: https://www.devolo.de/",
+                    "Location: https://www.ssllabs.com/",
                     "x-sc-lb: 10.2.190.9",
                     "Referrer-Policy: no-referrer-when-downgrade",
                     "Strict-Transport-Security: max-age=31536000",
@@ -2686,7 +2686,7 @@
                     },
                     {
                         "name": "Location",
-                        "value": "https://www.devolo.de/"
+                        "value": "https://www.ssllabs.com/"
                     },
                     {
                         "name": "x-sc-lb",

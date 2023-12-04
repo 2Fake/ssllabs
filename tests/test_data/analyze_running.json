@@ -1,5 +1,5 @@
 {
-    "host": "devolo.de",
+    "host": "ssllabs.com",
     "port": 443,
     "protocol": "http",
     "isPublic": true,

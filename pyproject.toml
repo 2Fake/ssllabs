@@ -69,7 +69,7 @@ forced-separate = ["tests"]
 
 [tool.ruff.per-file-ignores]
 "ssllabs/data/*" = ["A003", "FA100", "N815", "TCH001"]
-"tests/*" = ["S"]
+"tests/*" = ["PLR2004", "S"]
 "example.py" = ["TCH001"]
 
 [tool.setuptools]
