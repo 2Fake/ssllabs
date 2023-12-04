@@ -1,90 +1,95 @@
 """Test high level API."""
 import dataclasses
+from http import HTTPStatus
 from unittest.mock import patch
 
 import pytest
 from dacite import from_dict
-from httpx import ConnectTimeout, HTTPStatusError, ReadError, ReadTimeout, TransportError
+from httpx import AsyncClient, ConnectTimeout, ReadError, ReadTimeout, TransportError
+from pytest_httpx import HTTPXMock
 
 from ssllabs import Ssllabs
+from ssllabs.api import Endpoint
+from ssllabs.api._api import SSLLABS_URL
 from ssllabs.data.host import HostData
 from ssllabs.data.info import InfoData
-from ssllabs.data.status_codes import StatusCodesData
 
 from . import load_fixture
 
 
 @pytest.mark.asyncio()
-async def test_availabile() -> None:
+async def test_availabile(httpx_mock: HTTPXMock) -> None:
     """Test API being available."""
-    with patch("ssllabs.api.info.Info.get", return_Value=from_dict(data_class=InfoData, data=load_fixture("info"))):
-        ssllabs = Ssllabs()
-        assert await ssllabs.availability()
+    httpx_mock.add_response(json=load_fixture("info"))
+    ssllabs = Ssllabs()
+    assert await ssllabs.availability()
 
 
 @pytest.mark.asyncio()
 @pytest.mark.parametrize("exception", [ReadError, ReadTimeout, ConnectTimeout])
-async def test_unavailable(exception: TransportError) -> None:
+async def test_unavailable(exception: TransportError, httpx_mock: HTTPXMock) -> None:
     """Test API being unavailable."""
-    with patch("ssllabs.api.info.Info.get", side_effect=exception(message="", request="")):
-        ssllabs = Ssllabs()
-        assert not await ssllabs.availability()
+    httpx_mock.add_exception(exception(message="test"))
+    ssllabs = Ssllabs()
+    assert not await ssllabs.availability()
 
 
 @pytest.mark.asyncio()
-async def test_unavailable_status_error() -> None:
+async def test_unavailable_status_error(httpx_mock: HTTPXMock) -> None:
     """Test API responding with an error."""
-    with patch("ssllabs.api.info.Info.get", side_effect=HTTPStatusError(message="", request="", response="")):
-        ssllabs = Ssllabs()
-        assert not await ssllabs.availability()
+    httpx_mock.add_response(status_code=HTTPStatus.SERVICE_UNAVAILABLE)
+    ssllabs = Ssllabs()
+    assert not await ssllabs.availability()
 
 
 @pytest.mark.asyncio()
-async def test_analyze() -> None:
+async def test_analyze(httpx_mock: HTTPXMock) -> None:
     """Test analyzing a host."""
-    with patch("ssllabs.api.info.Info.get", return_value=from_dict(data_class=InfoData, data=load_fixture("info"))), patch(
-        "ssllabs.api.analyze.Analyze.get",
-        return_value=from_dict(data_class=HostData, data=load_fixture("analyze")),
-    ) as get:
-        ssllabs = Ssllabs()
-        analyze = await ssllabs.analyze(host="ssllabs.com")
-        assert dataclasses.asdict(analyze) == load_fixture("analyze")
-        get.assert_called_with(
-            host="ssllabs.com",
-            ignoreMismatch="off",
-            publish="off",
-            startNew="on",
-            fromCache="off",
-            maxAge=None,
-        )
-        analyze = await ssllabs.analyze(host="ssllabs.com", from_cache=True, max_age=1)
-        assert dataclasses.asdict(analyze) == load_fixture("analyze")
-        get.assert_called_with(
-            host="ssllabs.com",
-            ignoreMismatch="off",
-            publish="off",
-            startNew="off",
-            fromCache="on",
-            maxAge=1,
-        )
+    httpx_mock.add_response(json=load_fixture("info"), url=f"{SSLLABS_URL}info")
+    host = "ssllabs.com"
+    publish = "off"
+
+    start_new = "on"
+    from_cache = "off"
+    max_age = ""
+    httpx_mock.add_response(
+        json=load_fixture("analyze"),
+        url=f"{SSLLABS_URL}analyze?host={host}&startNew={start_new}&fromCache={from_cache}&publish={publish}&ignoreMismatch=off&maxAge={max_age}",
+    )
+    ssllabs = Ssllabs()
+    analyze = await ssllabs.analyze(host=host)
+    assert dataclasses.asdict(analyze) == load_fixture("analyze")
+
+    start_new = "off"
+    from_cache = "on"
+    max_age = 1
+    httpx_mock.add_response(
+        json=load_fixture("analyze"),
+        url=f"{SSLLABS_URL}analyze?host={host}&startNew={start_new}&fromCache={from_cache}&publish={publish}&ignoreMismatch=off&maxAge={max_age}",
+    )
+    analyze = await ssllabs.analyze(host=host, from_cache=True, max_age=max_age)
+    assert dataclasses.asdict(analyze) == load_fixture("analyze")
 
 
 @pytest.mark.asyncio()
-async def test_analyze_not_ready_yet() -> None:
+async def test_analyze_not_ready_yet(httpx_mock: HTTPXMock) -> None:
     """Test analysis is ongoing."""
-    with patch("asyncio.sleep"), patch(
-        "ssllabs.api.info.Info.get",
-        return_value=from_dict(data_class=InfoData, data=load_fixture("info")),
-    ), patch(
-        "ssllabs.api.analyze.Analyze.get",
-        side_effect=[
-            from_dict(data_class=HostData, data=load_fixture("analyze_running")),
-            from_dict(data_class=HostData, data=load_fixture("analyze")),
-        ],
-    ) as get:
+    host = "ssllabs.com"
+    publish = "off"
+    start_new = "on"
+    from_cache = "off"
+    max_age = ""
+
+    httpx_mock.add_response(json=load_fixture("info"), url=f"{SSLLABS_URL}info")
+    httpx_mock.add_response(
+        json=load_fixture("analyze_running"),
+        url=f"{SSLLABS_URL}analyze?host={host}&startNew={start_new}&fromCache={from_cache}&publish={publish}&ignoreMismatch=off&maxAge={max_age}",
+    )
+    httpx_mock.add_response(json=load_fixture("analyze"), url=f"{SSLLABS_URL}analyze?host={host}&all=done")
+
+    with patch("asyncio.sleep"):
         ssllabs = Ssllabs()
-        await ssllabs.analyze(host="ssllabs.com")
-        assert get.call_count == 2
+        await ssllabs.analyze(host=host)
 
 
 @pytest.mark.asyncio()
@@ -121,30 +126,46 @@ async def test_analyze_running_assessments() -> None:
 
 
 @pytest.mark.asyncio()
-async def test_info() -> None:
+async def test_info(httpx_mock: HTTPXMock) -> None:
     """Test getting information from SSL Labs."""
-    with patch("ssllabs.api.Info.get", return_value=from_dict(data_class=InfoData, data=load_fixture("info"))):
-        ssllabs = Ssllabs()
+    httpx_mock.add_response(json=load_fixture("info"))
+    ssllabs = Ssllabs()
+    info = await ssllabs.info()
+    assert dataclasses.asdict(info) == load_fixture("info")
+
+
+@pytest.mark.asyncio()
+async def test_info_with_client(httpx_mock: HTTPXMock) -> None:
+    """Test getting information from SSL Labs using an own client."""
+    httpx_mock.add_response(json=load_fixture("info"))
+    async with AsyncClient() as client:
+        ssllabs = Ssllabs(client=client)
         info = await ssllabs.info()
-        assert dataclasses.asdict(info) == load_fixture("info")
+    assert dataclasses.asdict(info) == load_fixture("info")
 
 
 @pytest.mark.asyncio()
-async def test_root_certs() -> None:
+async def test_root_certs(httpx_mock: HTTPXMock) -> None:
     """Test getting root certificates."""
-    with patch("ssllabs.api.RootCertsRaw.get", return_value=load_fixture("root_certs")["rootCerts"]):
-        ssllabs = Ssllabs()
-        root_certs = await ssllabs.root_certs()
-        assert root_certs == load_fixture("root_certs")["rootCerts"]
+    httpx_mock.add_response(text=load_fixture("root_certs")["rootCerts"])
+    ssllabs = Ssllabs()
+    root_certs = await ssllabs.root_certs()
+    assert root_certs == load_fixture("root_certs")["rootCerts"]
 
 
 @pytest.mark.asyncio()
-async def test_status_codes() -> None:
-    """Test gettint status codes."""
-    with patch(
-        "ssllabs.api.StatusCodes.get",
-        return_value=from_dict(data_class=StatusCodesData, data=load_fixture("status_codes")),
-    ):
-        ssllabs = Ssllabs()
-        status_codes = await ssllabs.status_codes()
-        assert dataclasses.asdict(status_codes) == load_fixture("status_codes")
+async def test_status_codes(httpx_mock: HTTPXMock) -> None:
+    """Test getting status codes."""
+    httpx_mock.add_response(json=load_fixture("status_codes"))
+    ssllabs = Ssllabs()
+    status_codes = await ssllabs.status_codes()
+    assert dataclasses.asdict(status_codes) == load_fixture("status_codes")
+
+
+@pytest.mark.asyncio()
+async def test_endpoint(httpx_mock: HTTPXMock) -> None:
+    """Test endpoint details."""
+    httpx_mock.add_response(json=load_fixture("endpoint"))
+    endpoint = Endpoint()
+    endpoint_data = await endpoint.get("ssllabs.com", "164.41.200.100")
+    assert dataclasses.asdict(endpoint_data) == load_fixture("endpoint")
