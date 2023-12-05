@@ -18,7 +18,7 @@ class Info(_Api):
         Get information.
 
         :raises httpx.ConnectTimeout: SSL Labs Servers don't respond.
-        :raises httpx.HTTPStatusError: A client or server error response occured.
+        :raises httpx.HTTPStatusError: A client or server error response occurred.
         :raises httpx.ReadTimeout: SSL Labs Servers don't respond.
         """
         r = await self._call("info")
