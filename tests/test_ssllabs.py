@@ -1,12 +1,14 @@
 """Test high level API."""
+from __future__ import annotations
+
 import dataclasses
 from http import HTTPStatus
+from typing import TYPE_CHECKING
 from unittest.mock import patch
 
 import pytest
 from dacite import from_dict
 from httpx import AsyncClient, ConnectTimeout, ReadError, ReadTimeout, TransportError
-from pytest_httpx import HTTPXMock
 
 from ssllabs import Ssllabs
 from ssllabs.api import Endpoint
@@ -15,6 +17,9 @@ from ssllabs.data.host import HostData
 from ssllabs.data.info import InfoData
 
 from . import load_fixture
+
+if TYPE_CHECKING:
+    from pytest_httpx import HTTPXMock
 
 
 @pytest.mark.asyncio()
@@ -27,7 +32,7 @@ async def test_availabile(httpx_mock: HTTPXMock) -> None:
 
 @pytest.mark.asyncio()
 @pytest.mark.parametrize("exception", [ReadError, ReadTimeout, ConnectTimeout])
-async def test_unavailable(exception: TransportError, httpx_mock: HTTPXMock) -> None:
+async def test_unavailable(exception: type[TransportError], httpx_mock: HTTPXMock) -> None:
     """Test API being unavailable."""
     httpx_mock.add_exception(exception(message="test"))
     ssllabs = Ssllabs()
@@ -51,7 +56,7 @@ async def test_analyze(httpx_mock: HTTPXMock) -> None:
 
     start_new = "on"
     from_cache = "off"
-    max_age = ""
+    max_age: int | None = None
     httpx_mock.add_response(
         json=load_fixture("analyze"),
         url=f"{SSLLABS_URL}analyze?host={host}&startNew={start_new}&fromCache={from_cache}&publish={publish}&ignoreMismatch=off&maxAge={max_age}",
