@@ -15,9 +15,10 @@ class RootCertsRaw(_Api):
         """
         Retrieve root certificates.
 
-        :key trustStore: 1-Mozilla(default), 2-Apple MacOS, 3-Android, 4-Java, 5-Windows
+        :keyword trustStore: 1-Mozilla(default), 2-Apple MacOS, 3-Android, 4-Java, 5-Windows
+        :type trustStore: TrustStore
         :raises httpx.ConnectTimeout: SSL Labs Servers don't respond.
-        :raises httpx.HTTPStatusError: A client or server error response occured.
+        :raises httpx.HTTPStatusError: A client or server error response occurred.
         :raises httpx.ReadTimeout: SSL Labs Servers don't respond.
         """
         self._verify_kwargs(kwargs.keys(), ["trustStore"])
