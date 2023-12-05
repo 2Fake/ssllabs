@@ -7,10 +7,10 @@ This project implements the [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) 
 Defining the system requirements with exact versions typically is difficult. But there is a tested environment:
 
 * Linux
-* Python 3.7.9
-* pip 20.3.3
-* dacite 1.6.0
-* httpx 0.16.1
+* Python 3.11.6
+* pip 23.3.1
+* dacite 1.8.1
+* httpx 0.25.2
 
 Other versions and even other operating systems might work. Feel free to tell us about your experience.
 
@@ -180,3 +180,4 @@ async def analyze():
         return await ssllabs.analyze(host="ssllabs.com")
 
 asyncio.run(analyze())
+```

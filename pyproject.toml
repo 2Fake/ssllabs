@@ -40,7 +40,6 @@ test = [
     "pytest-asyncio",
     "pytest-cov",
     "pytest-httpx",
-    "pytest-mock",
 ]
 
 [tool.black]
