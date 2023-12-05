@@ -56,10 +56,9 @@ async def test_analyze(httpx_mock: HTTPXMock) -> None:
 
     start_new = "on"
     from_cache = "off"
-    max_age: int | None = None
     httpx_mock.add_response(
         json=load_fixture("analyze"),
-        url=f"{SSLLABS_URL}analyze?host={host}&startNew={start_new}&fromCache={from_cache}&publish={publish}&ignoreMismatch=off&maxAge={max_age}",
+        url=f"{SSLLABS_URL}analyze?host={host}&startNew={start_new}&fromCache={from_cache}&publish={publish}&ignoreMismatch=off&maxAge=",
     )
     ssllabs = Ssllabs()
     analyze = await ssllabs.analyze(host=host)
