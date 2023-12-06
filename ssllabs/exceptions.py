@@ -1,4 +1,13 @@
 """Exceptions for the ssllabs module."""
+from __future__ import annotations
+
+
+class EndpointError(Exception):
+    """The Endpoint API raised errors."""
+
+    def __init__(self, messages: list[dict[str, str]]) -> None:
+        """Initialize error."""
+        super().__init__(messages[0]["message"])
 
 
 class SsllabsOverloadedError(Exception):

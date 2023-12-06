@@ -1,7 +1,7 @@
 """Qualys SSL Labs API in Python."""
 from importlib.metadata import PackageNotFoundError, version
 
-from .exceptions import SsllabsOverloadedError, SsllabsUnavailableError
+from .exceptions import EndpointError, SsllabsOverloadedError, SsllabsUnavailableError
 from .ssllabs import Ssllabs
 from .trust_store import TrustStore
 
@@ -13,4 +13,12 @@ except PackageNotFoundError:
     # package is not installed
     __version__ = "0.0.0"
 
-__all__ = ["Ssllabs", "SsllabsOverloadedError", "SsllabsUnavailableError", "TrustStore", "__license__", "__version__"]
+__all__ = [
+    "Ssllabs",
+    "EndpointError",
+    "SsllabsOverloadedError",
+    "SsllabsUnavailableError",
+    "TrustStore",
+    "__license__",
+    "__version__",
+]

@@ -20,6 +20,7 @@ class RootCertsRaw(_Api):
         :raises SsllabsUnavailableError: The SSL Labs service is not available.
         :raises SsllabsOverloadedError: The SSL Labs service is overloaded. You should reduce your usage or wait a bit.
         :raises HTTPStatusError: Something unexpected happened. Please file us a bug.
+        :raises MissingValueError: Something unexpected happened. Please file us a bug.
         """
         self._verify_kwargs(kwargs.keys(), ["trustStore"])
         r = await self._call("getRootCertsRaw", **kwargs)

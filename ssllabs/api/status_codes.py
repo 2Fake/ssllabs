@@ -20,6 +20,7 @@ class StatusCodes(_Api):
         :raises SsllabsUnavailableError: The SSL Labs service is not available.
         :raises SsllabsOverloadedError: The SSL Labs service is overloaded. You should reduce your usage or wait a bit.
         :raises HTTPStatusError: Something unexpected happened. Please file us a bug.
+        :raises MissingValueError: Something unexpected happened. Please file us a bug.
         """
         r = await self._call("getStatusCodes")
         return from_dict(data_class=StatusCodesData, data=r.json())
