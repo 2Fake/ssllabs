@@ -8,9 +8,9 @@ from unittest.mock import patch
 
 import pytest
 from dacite import from_dict
-from httpx import AsyncClient, ConnectTimeout, ReadError, ReadTimeout, TransportError
+from httpx import AsyncClient, ConnectTimeout, HTTPStatusError, ReadError, ReadTimeout, TransportError
 
-from ssllabs import Ssllabs
+from ssllabs import Ssllabs, SsllabsOverloadedError
 from ssllabs.api import Endpoint
 from ssllabs.api._api import SSLLABS_URL
 from ssllabs.data.host import HostData
@@ -37,6 +37,25 @@ async def test_unavailable(exception: type[TransportError], httpx_mock: HTTPXMoc
     httpx_mock.add_exception(exception(message="test"))
     ssllabs = Ssllabs()
     assert not await ssllabs.availability()
+
+
+@pytest.mark.asyncio()
+@pytest.mark.parametrize("status_code", [HTTPStatus.TOO_MANY_REQUESTS, 529])
+async def test_overloaded(status_code: int, httpx_mock: HTTPXMock) -> None:
+    """Test API being overloaded."""
+    httpx_mock.add_response(status_code=status_code)
+    ssllabs = Ssllabs()
+    with pytest.raises(SsllabsOverloadedError):
+        await ssllabs.analyze(host="ssllabs.com")
+
+
+@pytest.mark.asyncio()
+async def test_http_error(httpx_mock: HTTPXMock) -> None:
+    """Test API sending HTTP error."""
+    httpx_mock.add_response(status_code=HTTPStatus.BAD_REQUEST)
+    ssllabs = Ssllabs()
+    with pytest.raises(HTTPStatusError):
+        await ssllabs.analyze(host="ssllabs.com")
 
 
 @pytest.mark.asyncio()

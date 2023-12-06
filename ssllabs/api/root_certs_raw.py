@@ -17,9 +17,9 @@ class RootCertsRaw(_Api):
 
         :keyword trustStore: 1-Mozilla(default), 2-Apple MacOS, 3-Android, 4-Java, 5-Windows
         :type trustStore: TrustStore
-        :raises httpx.ConnectTimeout: SSL Labs Servers don't respond.
-        :raises httpx.HTTPStatusError: A client or server error response occurred.
-        :raises httpx.ReadTimeout: SSL Labs Servers don't respond.
+        :raises SsllabsUnavailableError: The SSL Labs service is not available.
+        :raises SsllabsOverloadedError: The SSL Labs service is overloaded. You should reduce your usage or wait a bit.
+        :raises HTTPStatusError: Something unexpected happened. Please file us a bug.
         """
         self._verify_kwargs(kwargs.keys(), ["trustStore"])
         r = await self._call("getRootCertsRaw", **kwargs)

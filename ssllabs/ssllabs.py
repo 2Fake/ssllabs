@@ -5,12 +5,13 @@ import asyncio
 import logging
 from typing import TYPE_CHECKING
 
-from httpx import AsyncClient, ConnectTimeout, HTTPStatusError, ReadError, ReadTimeout
-
 from .api import Analyze, Info, RootCertsRaw, StatusCodes
+from .exceptions import SsllabsUnavailableError
 from .trust_store import TrustStore
 
 if TYPE_CHECKING:
+    from httpx import AsyncClient
+
     from .data.host import HostData
     from .data.info import InfoData
     from .data.status_codes import StatusCodesData
@@ -36,7 +37,7 @@ class Ssllabs:
         i = Info(self._client)
         try:
             await i.get()
-        except (HTTPStatusError, ReadError, ReadTimeout, ConnectTimeout) as ex:
+        except SsllabsUnavailableError as ex:
             LOGGER.error(ex)  # noqa: TRY400
             return False
         else:
