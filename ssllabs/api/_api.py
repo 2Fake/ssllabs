@@ -13,7 +13,6 @@ class _Api:
     """Base class to communicate with Qualys SSL Labs Assessment APIs."""
 
     def __init__(self, client: AsyncClient | None = None) -> None:
-        self._logger = logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}")
         self._client = client
 
     async def _call(self, api_endpoint: str, **kwargs: Any) -> Response:
@@ -28,9 +27,10 @@ class _Api:
 
     def _verify_kwargs(self, given: KeysView[str], known: list[str]) -> None:
         """Log warning, if an argument is unknown."""
+        logger = logging.getLogger(f"{self.__class__.__module__}.{self.__class__.__name__}")
         for arg in given:
             if arg not in known:
-                self._logger.warning(
+                logger.warning(
                     "Argument '%s' is not known by the SSL Labs API. It will be send, but the results might be unexpected.",
                     arg,
                 )
