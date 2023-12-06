@@ -16,13 +16,15 @@ if TYPE_CHECKING:
     from .data.status_codes import StatusCodesData
 
 
+LOGGER = logging.getLogger(__name__)
+
+
 class Ssllabs:
     """High level methods to interact with the SSL Labs Assessment APIs."""
 
     def __init__(self, client: AsyncClient | None = None) -> None:
         """Initialize SSL Labs."""
         self._client = client
-        self._logger = logging.getLogger("ssllabs.Ssllabs")
         self._semaphore = asyncio.Semaphore(1)
 
     async def availability(self) -> bool:
@@ -35,10 +37,10 @@ class Ssllabs:
         try:
             await i.get()
         except (HTTPStatusError, ReadError, ReadTimeout, ConnectTimeout) as ex:
-            self._logger.error(ex)  # noqa: TRY400
+            LOGGER.error(ex)  # noqa: TRY400
             return False
         else:
-            self._logger.info("SSL Labs servers are up an running.")
+            LOGGER.info("SSL Labs servers are up an running.")
             return True
 
     async def analyze(  # noqa: PLR0913
@@ -62,13 +64,13 @@ class Ssllabs:
         See also: https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-usage
         """
         await self._semaphore.acquire()
-        self._logger.info("Analyzing %s", host)
+        LOGGER.info("Analyzing %s", host)
         i = Info(self._client)
         info = await i.get()
 
         # Wait for a free slot, if all slots are in use
         while info.currentAssessments >= info.maxAssessments:
-            self._logger.warning("Already %i assessments running. Need to wait.", info.currentAssessments)
+            LOGGER.warning("Already %i assessments running. Need to wait.", info.currentAssessments)
             await asyncio.sleep(1)
             info = await i.get()
 
@@ -87,7 +89,7 @@ class Ssllabs:
         )
         self._semaphore.release()
         while host_object.status not in ["READY", "ERROR"]:
-            self._logger.debug("Assessment of %s not ready yet.", host)
+            LOGGER.debug("Assessment of %s not ready yet.", host)
             await asyncio.sleep(10)
             host_object = await a.get(host=host, all="done")
         return host_object
