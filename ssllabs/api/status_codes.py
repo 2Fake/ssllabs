@@ -17,9 +17,9 @@ class StatusCodes(_Api):
         """
         Retrieve known status codes.
 
-        :raises httpx.ConnectTimeout: SSL Labs Servers don't respond.
-        :raises httpx.HTTPStatusError: A client or server error response occurred.
-        :raises httpx.ReadTimeout: SSL Labs Servers don't respond.
+        :raises SsllabsUnavailableError: The SSL Labs service is not available.
+        :raises SsllabsOverloadedError: The SSL Labs service is overloaded. You should reduce your usage or wait a bit.
+        :raises HTTPStatusError: Something unexpected happened. Please file us a bug.
         """
         r = await self._call("getStatusCodes")
         return from_dict(data_class=StatusCodesData, data=r.json())

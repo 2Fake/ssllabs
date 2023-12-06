@@ -43,9 +43,9 @@ class Analyze(_Api):
                                  assessment hostname. Set to off by default. Please note that this parameter is ignored if a
                                  cached report is returned.
         :type ignoreMismatch: str
-        :raises httpx.ConnectTimeout: SSL Labs Servers don't respond.
-        :raises httpx.HTTPStatusError: A client or server error response occurred.
-        :raises httpx.ReadTimeout: SSL Labs Servers don't respond.
+        :raises SsllabsUnavailableError: The SSL Labs service is not available.
+        :raises SsllabsOverloadedError: The SSL Labs service is overloaded. You should reduce your usage or wait a bit.
+        :raises HTTPStatusError: Something unexpected happened. Please file us a bug.
         """
         self._verify_kwargs(kwargs.keys(), ["publish", "startNew", "fromCache", "maxAge", "all", "ignoreMismatch"])
         r = await self._call("analyze", host=host, **kwargs)
