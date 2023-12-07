@@ -8,12 +8,18 @@
    :maxdepth: 2
    :caption: Content
 
+   installation
+   high_level_usage
+   advanced_usage
    changelog
    Package Overview <source/ssllabs>
 
 
-Readme
-======
+ssllabs
+=======
 
 .. mdinclude:: ../README.md
-   :start-line: 3
+   :start-line: 2
+   :end-line: 20
+
+Current Version: |version|

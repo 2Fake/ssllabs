@@ -20,10 +20,10 @@ In our versioning we follow [Semantic Versioning](https://semver.org/).
 
 ## Installing for usage
 
-The Python Package Index takes care for you. Just use pip.
+The Python Package Index takes care for you. Just use pip or your favorite package manager. Please take care of creating a virtual environment if needed.
 
 ```bash
-pip install ssllabs
+python -m pip install ssllabs
 ```
 
 ## Installing for development
@@ -34,18 +34,16 @@ First, you need to get the sources.
 git clone git@github.com:2Fake/ssllabs.git
 ```
 
-Then you need to take care of the requirements.
+Then you need to take care of the requirements. Please take care of creating a virtual environment if needed.
 
 ```bash
 cd ssllabs
-python setup.py install
+python -m pip install -e .[dev]
 ```
 
 ## High level usage
 
-If you want to cover on the common usage cases, you can use our high level implementations.
-
-### Analyzing a host
+If you want to cover on the common usage cases, you can use our high level implementations that already take care of the recommended [protocol usage](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-usage) and [rate limits](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#access-rate-and-rate-limiting).
 
 ```python
 import asyncio
@@ -59,125 +57,4 @@ async def analyze():
 asyncio.run(analyze())
 ```
 
-This will give you a [Host object](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#host) as dataclass. This call runs quite long as it takes time to run all tests. You probably know that from using the [webinterface](https://www.ssllabs.com/ssltest). If you don't need a fresh result on every run, you can allow using ssllabs' cache. This will speed up the tests, if there are cached results. The maximum cache validity can be set in full hour steps.
-
-```python
-import asyncio
-
-from ssllabs import Ssllabs
-
-async def analyze():
-    ssllabs = Ssllabs()
-    return await ssllabs.analyze(host="ssllabs.com", from_cache=True, max_age=1)
-
-asyncio.run(analyze())
-```
-
-### Check availability of the SSL Labs servers
-
-```python
-import asyncio
-
-from ssllabs import Ssllabs
-
-async def availability():
-    ssllabs = Ssllabs()
-    return await ssllabs.availability()
-
-asyncio.run(availability())
-```
-
-This will give you True, if the servers are up and running, otherwise False. It will also report False, if you exceeded your rate limits.
-
-### Retrieve API information
-
-```python
-import asyncio
-
-from ssllabs import Ssllabs
-
-async def info():
-    ssllabs = Ssllabs()
-    return await ssllabs.info()
-
-asyncio.run(info())
-```
-
-This will give you an [Info object](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#info) as dataclass.
-
-### Retrieve root certificates
-
-```python
-import asyncio
-
-from ssllabs import Ssllabs
-
-async def root_certs():
-    ssllabs = Ssllabs()
-    return await ssllabs.root_certs(trust_store=1)
-
-asyncio.run(root_certs())
-```
-
-This will give you a string containing the latest root certificates used for trust validation. By default it used the certificates provided by Mozilla. You can choose a differently store by changing trust_store to 1: Mozilla, 2: Apple MacOS, 3: Android, 4: Java or 5: Windows.
-
-### Retrieve known status codes
-
-```python
-import asyncio
-
-from ssllabs import Ssllabs
-
-async def status_codes():
-    ssllabs = Ssllabs()
-    return await ssllabs.status_codes()
-
-asyncio.run(status_codes())
-```
-
-This will give you a [StatusCodes object](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#statuscodes) as dataclass.
-
-### Example to print the grade of multiple servers
-
-If you are just interested in the grade of servers, you can take [this example](https://github.com/2Fake/ssllabs/blob/main/example.py) as a starting point. Just exchange the list of hosts you want to query.
-
-## Low level usage
-
-If the high level methods do not match your use case, you can access each [API call](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-calls).
-
-```python
-import asyncio
-
-from ssllabs.api import Endpoint
-
-async def get_grade():
-    api = Endpoint()
-    endpoint = await api.get(host="ssllabs.com", s="64.41.200.100")
-    return endpoint.grade
-
-asyncio.run(get_grade())
-```
-
-Classes are called like the [API call](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-calls) without the leading get. The get method will query the API. It will take the parameters like in the documentation and return a dataclass representing the object, the API describes. One exception in the naming: the getEndpointData call is implemented in the Endpoint class to be able to better distinguish it from its EndpointData result object.
-
-## Exceptions
-
-Three types of exceptions might hit you, if the connection to SSL Labs' API is affected: ```httpx.ConnectTimeout``` or ```httpx.ReadTimeout``` appear, if the servers are down, and ```httpx.HTTPStatusError``` appears, if there is a client or server [error response](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#error-response-status-codes). In this cases, you are asked to wait 15 to 30 minutes before you try again.
-
-## Using an own HTTP client
-
-If you have special needs (e.g. what to use a proxy server), you can create an own HTTP client. Please read the [httpx documentation](https://www.python-httpx.org/advanced) to find out which possibilities you have.
-
-```python
-import asyncio
-
-from httpx import AsyncClient
-from ssllabs import Ssllabs
-
-async def analyze():
-    async with AsyncClient(proxies="http://localhost:8030") as client:
-        ssllabs = Ssllabs(client)
-        return await ssllabs.analyze(host="ssllabs.com")
-
-asyncio.run(analyze())
-```
+This will give you a [Host object](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#host) as dataclass. This call runs quite long as it takes time to run all tests. You probably know that from using the [webinterface](https://www.ssllabs.com/ssltest).
