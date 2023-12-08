@@ -10,7 +10,7 @@ import pytest
 from dacite import from_dict
 from httpx import AsyncClient, ConnectTimeout, HTTPStatusError, ReadError, ReadTimeout, TransportError
 
-from ssllabs import Ssllabs, SsllabsOverloadedError
+from ssllabs import EndpointError, Ssllabs, SsllabsOverloadedError
 from ssllabs.api import Endpoint
 from ssllabs.api._api import SSLLABS_URL
 from ssllabs.data.host import HostData
@@ -192,3 +192,12 @@ async def test_endpoint(httpx_mock: HTTPXMock) -> None:
     endpoint = Endpoint()
     endpoint_data = await endpoint.get("ssllabs.com", "164.41.200.100")
     assert dataclasses.asdict(endpoint_data) == load_fixture("endpoint")
+
+
+@pytest.mark.asyncio()
+async def test_endpoint_without_assessment(httpx_mock: HTTPXMock) -> None:
+    """Test endpoint details without preceding assessment."""
+    httpx_mock.add_response(json=load_fixture("endpoint_error"))
+    endpoint = Endpoint()
+    with pytest.raises(EndpointError):
+        await endpoint.get("ssllabs.com", "164.41.200.100")
