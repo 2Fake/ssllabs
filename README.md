@@ -18,27 +18,12 @@ Other versions and even other operating systems might work. Feel free to tell us
 
 In our versioning we follow [Semantic Versioning](https://semver.org/).
 
-## Installing for usage
+## Installation
 
 The Python Package Index takes care for you. Just use pip or your favorite package manager. Please take care of creating a virtual environment if needed.
 
 ```bash
 python -m pip install ssllabs
-```
-
-## Installing for development
-
-First, you need to get the sources.
-
-```bash
-git clone git@github.com:2Fake/ssllabs.git
-```
-
-Then you need to take care of the requirements. Please take care of creating a virtual environment if needed.
-
-```bash
-cd ssllabs
-python -m pip install -e .[dev]
 ```
 
 ## High level usage

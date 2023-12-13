@@ -2,15 +2,15 @@ High Level Usage
 ================
 
 .. mdinclude:: ../README.md
-   :start-line: 44
-   :end-line: 46
+   :start-line: 30
+   :end-line: 32
 
 Analyzing a host
 ----------------
 
 .. mdinclude:: ../README.md
-   :start-line: 47
-   :end-line: 61
+   :start-line: 32
+   :end-line: 46
 
 If you don't need a fresh result on every run, you can allow using SSL Labs' cache. This will speed up the tests if there are cached results. The maximum cache validity can be set in full hour steps.
 
