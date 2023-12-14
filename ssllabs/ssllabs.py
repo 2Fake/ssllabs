@@ -27,6 +27,10 @@ class Ssllabs:
         """Initialize SSL Labs."""
         self._client = client
         self._semaphore = asyncio.Semaphore(1)
+        LOGGER.info(
+            "You will be sending assessment requests to remote SSL Labs servers and information will be shared with them.",
+        )
+        LOGGER.info("Please subject to the terms and conditions: https://www.ssllabs.com/about/terms.html")
 
     async def availability(self) -> bool:
         """
@@ -41,7 +45,7 @@ class Ssllabs:
             LOGGER.error(ex)  # noqa: TRY400
             return False
         else:
-            LOGGER.info("SSL Labs servers are up an running.")
+            LOGGER.info("SSL Labs servers are up and running.")
             return True
 
     async def analyze(  # noqa: PLR0913
@@ -68,6 +72,8 @@ class Ssllabs:
         LOGGER.info("Analyzing %s", host)
         i = Info(self._client)
         info = await i.get()
+        for message in info.messages:
+            LOGGER.info("%s", message)
 
         # Wait for a free slot, if all slots are in use
         while info.currentAssessments >= info.maxAssessments:
