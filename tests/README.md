@@ -17,6 +17,6 @@ Defining the system requirements with exact versions typically is difficult. But
 Install the extra requirements and start pytest.
 
 ```bash
-pip install -e .[test]
+python -m pip install -e .[test]
 pytest
 ```
