@@ -1,0 +1,1211 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ssllabs package &#8212; ssllabs  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/ssllabs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ssllabs.api package" href="ssllabs.api.html" />
+    <link rel="prev" title="Changelog" href="../changelog.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ssllabs  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../high_level_usage.html">
+                        High Level Usage
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../advanced_usage.html">
+                        Advanced Usage
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Package Overview
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/2Fake/ssllabs" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../high_level_usage.html">
+                        High Level Usage
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../advanced_usage.html">
+                        Advanced Usage
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Package Overview
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/2Fake/ssllabs" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ssllabs.api.html">ssllabs.api package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssllabs.data.html">ssllabs.data package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">ssllabs package</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="ssllabs-package">
+<h1>ssllabs package<a class="headerlink" href="#ssllabs-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ssllabs.api.html">ssllabs.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#module-ssllabs.api.analyze">ssllabs.api.analyze module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.analyze.Analyze"><code class="docutils literal notranslate"><span class="pre">Analyze</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.analyze.Analyze.get"><code class="docutils literal notranslate"><span class="pre">Analyze.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#module-ssllabs.api.endpoint">ssllabs.api.endpoint module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.endpoint.Endpoint"><code class="docutils literal notranslate"><span class="pre">Endpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.endpoint.Endpoint.get"><code class="docutils literal notranslate"><span class="pre">Endpoint.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#module-ssllabs.api.info">ssllabs.api.info module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.info.Info"><code class="docutils literal notranslate"><span class="pre">Info</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.info.Info.get"><code class="docutils literal notranslate"><span class="pre">Info.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#module-ssllabs.api.root_certs_raw">ssllabs.api.root_certs_raw module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.root_certs_raw.RootCertsRaw"><code class="docutils literal notranslate"><span class="pre">RootCertsRaw</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.root_certs_raw.RootCertsRaw.get"><code class="docutils literal notranslate"><span class="pre">RootCertsRaw.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#module-ssllabs.api.status_codes">ssllabs.api.status_codes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.status_codes.StatusCodes"><code class="docutils literal notranslate"><span class="pre">StatusCodes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.status_codes.StatusCodes.get"><code class="docutils literal notranslate"><span class="pre">StatusCodes.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.api.html#module-ssllabs.api">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.Analyze"><code class="docutils literal notranslate"><span class="pre">Analyze</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.Analyze.get"><code class="docutils literal notranslate"><span class="pre">Analyze.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.Endpoint"><code class="docutils literal notranslate"><span class="pre">Endpoint</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.Endpoint.get"><code class="docutils literal notranslate"><span class="pre">Endpoint.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.Info"><code class="docutils literal notranslate"><span class="pre">Info</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.Info.get"><code class="docutils literal notranslate"><span class="pre">Info.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.RootCertsRaw"><code class="docutils literal notranslate"><span class="pre">RootCertsRaw</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.RootCertsRaw.get"><code class="docutils literal notranslate"><span class="pre">RootCertsRaw.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.StatusCodes"><code class="docutils literal notranslate"><span class="pre">StatusCodes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.api.html#ssllabs.api.StatusCodes.get"><code class="docutils literal notranslate"><span class="pre">StatusCodes.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ssllabs.data.html">ssllabs.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.caa_policy">ssllabs.data.caa_policy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_policy.CaaPolicyData"><code class="docutils literal notranslate"><span class="pre">CaaPolicyData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_policy.CaaPolicyData.caaRecords"><code class="docutils literal notranslate"><span class="pre">CaaPolicyData.caaRecords</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_policy.CaaPolicyData.policyHostname"><code class="docutils literal notranslate"><span class="pre">CaaPolicyData.policyHostname</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.caa_record">ssllabs.data.caa_record module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_record.CaaRecordData"><code class="docutils literal notranslate"><span class="pre">CaaRecordData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_record.CaaRecordData.flags"><code class="docutils literal notranslate"><span class="pre">CaaRecordData.flags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_record.CaaRecordData.tag"><code class="docutils literal notranslate"><span class="pre">CaaRecordData.tag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.caa_record.CaaRecordData.value"><code class="docutils literal notranslate"><span class="pre">CaaRecordData.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.cert">ssllabs.data.cert module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData"><code class="docutils literal notranslate"><span class="pre">CertData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.altNames"><code class="docutils literal notranslate"><span class="pre">CertData.altNames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.caaPolicy"><code class="docutils literal notranslate"><span class="pre">CertData.caaPolicy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.commonNames"><code class="docutils literal notranslate"><span class="pre">CertData.commonNames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.crlRevocationStatus"><code class="docutils literal notranslate"><span class="pre">CertData.crlRevocationStatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.crlURIs"><code class="docutils literal notranslate"><span class="pre">CertData.crlURIs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.dnsCaa"><code class="docutils literal notranslate"><span class="pre">CertData.dnsCaa</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.id"><code class="docutils literal notranslate"><span class="pre">CertData.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.issuerSubject"><code class="docutils literal notranslate"><span class="pre">CertData.issuerSubject</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.issues"><code class="docutils literal notranslate"><span class="pre">CertData.issues</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.keyAlg"><code class="docutils literal notranslate"><span class="pre">CertData.keyAlg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.keyKnownDebianInsecure"><code class="docutils literal notranslate"><span class="pre">CertData.keyKnownDebianInsecure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.keySize"><code class="docutils literal notranslate"><span class="pre">CertData.keySize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.keyStrength"><code class="docutils literal notranslate"><span class="pre">CertData.keyStrength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.mustStaple"><code class="docutils literal notranslate"><span class="pre">CertData.mustStaple</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.notAfter"><code class="docutils literal notranslate"><span class="pre">CertData.notAfter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.notBefore"><code class="docutils literal notranslate"><span class="pre">CertData.notBefore</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.ocspRevocationStatus"><code class="docutils literal notranslate"><span class="pre">CertData.ocspRevocationStatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.ocspURIs"><code class="docutils literal notranslate"><span class="pre">CertData.ocspURIs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.pinSha256"><code class="docutils literal notranslate"><span class="pre">CertData.pinSha256</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.raw"><code class="docutils literal notranslate"><span class="pre">CertData.raw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.revocationInfo"><code class="docutils literal notranslate"><span class="pre">CertData.revocationInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.revocationStatus"><code class="docutils literal notranslate"><span class="pre">CertData.revocationStatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.sct"><code class="docutils literal notranslate"><span class="pre">CertData.sct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.serialNumber"><code class="docutils literal notranslate"><span class="pre">CertData.serialNumber</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.sgc"><code class="docutils literal notranslate"><span class="pre">CertData.sgc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.sha1Hash"><code class="docutils literal notranslate"><span class="pre">CertData.sha1Hash</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.sha256Hash"><code class="docutils literal notranslate"><span class="pre">CertData.sha256Hash</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.sigAlg"><code class="docutils literal notranslate"><span class="pre">CertData.sigAlg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.subject"><code class="docutils literal notranslate"><span class="pre">CertData.subject</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.cert.CertData.validationType"><code class="docutils literal notranslate"><span class="pre">CertData.validationType</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.certificate_chain">ssllabs.data.certificate_chain module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.certificate_chain.CertificateChainData"><code class="docutils literal notranslate"><span class="pre">CertificateChainData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.certificate_chain.CertificateChainData.certIds"><code class="docutils literal notranslate"><span class="pre">CertificateChainData.certIds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.certificate_chain.CertificateChainData.id"><code class="docutils literal notranslate"><span class="pre">CertificateChainData.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.certificate_chain.CertificateChainData.issues"><code class="docutils literal notranslate"><span class="pre">CertificateChainData.issues</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.certificate_chain.CertificateChainData.noSni"><code class="docutils literal notranslate"><span class="pre">CertificateChainData.noSni</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.certificate_chain.CertificateChainData.trustPaths"><code class="docutils literal notranslate"><span class="pre">CertificateChainData.trustPaths</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.drown_hosts">ssllabs.data.drown_hosts module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData"><code class="docutils literal notranslate"><span class="pre">DrownHostsData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData.export"><code class="docutils literal notranslate"><span class="pre">DrownHostsData.export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData.ip"><code class="docutils literal notranslate"><span class="pre">DrownHostsData.ip</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData.port"><code class="docutils literal notranslate"><span class="pre">DrownHostsData.port</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData.special"><code class="docutils literal notranslate"><span class="pre">DrownHostsData.special</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData.sslv2"><code class="docutils literal notranslate"><span class="pre">DrownHostsData.sslv2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.drown_hosts.DrownHostsData.status"><code class="docutils literal notranslate"><span class="pre">DrownHostsData.status</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.endpoint">ssllabs.data.endpoint module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData"><code class="docutils literal notranslate"><span class="pre">EndpointData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.delegation"><code class="docutils literal notranslate"><span class="pre">EndpointData.delegation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.details"><code class="docutils literal notranslate"><span class="pre">EndpointData.details</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.duration"><code class="docutils literal notranslate"><span class="pre">EndpointData.duration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.eta"><code class="docutils literal notranslate"><span class="pre">EndpointData.eta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.futureGrade"><code class="docutils literal notranslate"><span class="pre">EndpointData.futureGrade</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.grade"><code class="docutils literal notranslate"><span class="pre">EndpointData.grade</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.gradeTrustIgnored"><code class="docutils literal notranslate"><span class="pre">EndpointData.gradeTrustIgnored</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.hasWarnings"><code class="docutils literal notranslate"><span class="pre">EndpointData.hasWarnings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.ipAddress"><code class="docutils literal notranslate"><span class="pre">EndpointData.ipAddress</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.isExceptional"><code class="docutils literal notranslate"><span class="pre">EndpointData.isExceptional</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.progress"><code class="docutils literal notranslate"><span class="pre">EndpointData.progress</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.serverName"><code class="docutils literal notranslate"><span class="pre">EndpointData.serverName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.statusDetails"><code class="docutils literal notranslate"><span class="pre">EndpointData.statusDetails</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.statusDetailsMessage"><code class="docutils literal notranslate"><span class="pre">EndpointData.statusDetailsMessage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint.EndpointData.statusMessage"><code class="docutils literal notranslate"><span class="pre">EndpointData.statusMessage</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.endpoint_details">ssllabs.data.endpoint_details module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.alpnProtocols"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.alpnProtocols</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.bleichenbacher"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.bleichenbacher</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.certChains"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.certChains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.chaCha20Preference"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.chaCha20Preference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.compressionMethods"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.compressionMethods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.dhPrimes"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.dhPrimes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.dhUsesKnownPrimes"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.dhUsesKnownPrimes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.dhYsReuse"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.dhYsReuse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.drownErrors"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.drownErrors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.drownHosts"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.drownHosts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.drownVulnerable"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.drownVulnerable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.ecdhParameterReuse"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.ecdhParameterReuse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.fallbackScsv"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.fallbackScsv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.forwardSecrecy"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.forwardSecrecy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.freak"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.freak</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.goldenDoodle"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.goldenDoodle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.hasSct"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.hasSct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.heartbeat"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.heartbeat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.heartbleed"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.heartbleed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.hostStartTime"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.hostStartTime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.hpkpPolicy"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.hpkpPolicy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.hpkpRoPolicy"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.hpkpRoPolicy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.hstsPolicy"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.hstsPolicy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.hstsPreloads"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.hstsPreloads</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.httpForwarding"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.httpForwarding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.httpStatusCode"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.httpStatusCode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.httpTransactions"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.httpTransactions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.implementsTLS13MandatoryCS"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.implementsTLS13MandatoryCS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.logjam"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.logjam</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.miscIntolerance"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.miscIntolerance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.namedGroups"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.namedGroups</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.noSniSuites"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.noSniSuites</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.nonPrefixDelegation"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.nonPrefixDelegation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.npnProtocols"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.npnProtocols</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.ocspStapling"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.ocspStapling</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.openSSLLuckyMinus20"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.openSSLLuckyMinus20</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.openSslCcs"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.openSslCcs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.poodle"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.poodle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.poodleTls"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.poodleTls</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.prefixDelegation"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.prefixDelegation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.protocolIntolerance"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.protocolIntolerance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.protocols"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.protocols</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.rc4Only"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.rc4Only</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.rc4WithModern"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.rc4WithModern</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.renegSupport"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.renegSupport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.serverSignature"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.serverSignature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.sessionResumption"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.sessionResumption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.sessionTickets"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.sessionTickets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.sims"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.sims</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.sleepingPoodle"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.sleepingPoodle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.sniRequired"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.sniRequired</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.staplingRevocationErrorMessage"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.staplingRevocationErrorMessage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.staplingRevocationStatus"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.staplingRevocationStatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.staticPkpPolicy"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.staticPkpPolicy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.suites"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.suites</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.supportsAead"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.supportsAead</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.supportsAlpn"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.supportsAlpn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.supportsCBC"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.supportsCBC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.supportsNpn"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.supportsNpn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.supportsRc4"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.supportsRc4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.ticketbleed"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.ticketbleed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.vulnBeast"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.vulnBeast</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.zeroLengthPaddingOracle"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.zeroLengthPaddingOracle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.zeroRTTEnabled"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.zeroRTTEnabled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.endpoint_details.EndpointDetailsData.zombiePoodle"><code class="docutils literal notranslate"><span class="pre">EndpointDetailsData.zombiePoodle</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.host">ssllabs.data.host module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData"><code class="docutils literal notranslate"><span class="pre">HostData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.cacheExpiryTime"><code class="docutils literal notranslate"><span class="pre">HostData.cacheExpiryTime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.certHostnames"><code class="docutils literal notranslate"><span class="pre">HostData.certHostnames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.certs"><code class="docutils literal notranslate"><span class="pre">HostData.certs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.criteriaVersion"><code class="docutils literal notranslate"><span class="pre">HostData.criteriaVersion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.endpoints"><code class="docutils literal notranslate"><span class="pre">HostData.endpoints</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.engineVersion"><code class="docutils literal notranslate"><span class="pre">HostData.engineVersion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.host"><code class="docutils literal notranslate"><span class="pre">HostData.host</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.isPublic"><code class="docutils literal notranslate"><span class="pre">HostData.isPublic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.port"><code class="docutils literal notranslate"><span class="pre">HostData.port</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.protocol"><code class="docutils literal notranslate"><span class="pre">HostData.protocol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.startTime"><code class="docutils literal notranslate"><span class="pre">HostData.startTime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.status"><code class="docutils literal notranslate"><span class="pre">HostData.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.statusMessage"><code class="docutils literal notranslate"><span class="pre">HostData.statusMessage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData.testTime"><code class="docutils literal notranslate"><span class="pre">HostData.testTime</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.hpkp_policy">ssllabs.data.hpkp_policy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.directives"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.directives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.error"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.header"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.includeSubDomains"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.includeSubDomains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.matchedPins"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.matchedPins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.maxAge"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.maxAge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.pins"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.pins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.reportUri"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.reportUri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hpkp_policy.HpkpPolicyData.status"><code class="docutils literal notranslate"><span class="pre">HpkpPolicyData.status</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.hsts_policy">ssllabs.data.hsts_policy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.LONG_MAX_AGE"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.LONG_MAX_AGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.directives"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.directives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.error"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.header"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.includeSubDomains"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.includeSubDomains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.maxAge"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.maxAge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.preload"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.preload</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_policy.HstsPolicyData.status"><code class="docutils literal notranslate"><span class="pre">HstsPolicyData.status</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.hsts_preload">ssllabs.data.hsts_preload module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_preload.HstsPreloadData"><code class="docutils literal notranslate"><span class="pre">HstsPreloadData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_preload.HstsPreloadData.error"><code class="docutils literal notranslate"><span class="pre">HstsPreloadData.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_preload.HstsPreloadData.hostname"><code class="docutils literal notranslate"><span class="pre">HstsPreloadData.hostname</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_preload.HstsPreloadData.source"><code class="docutils literal notranslate"><span class="pre">HstsPreloadData.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_preload.HstsPreloadData.sourceTime"><code class="docutils literal notranslate"><span class="pre">HstsPreloadData.sourceTime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.hsts_preload.HstsPreloadData.status"><code class="docutils literal notranslate"><span class="pre">HstsPreloadData.status</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.http_transaction">ssllabs.data.http_transaction module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.fragileServer"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.fragileServer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.requestHeaders"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.requestHeaders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.requestLine"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.requestLine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.requestUrl"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.requestUrl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.responseHeaders"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.responseHeaders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.responseHeadersRaw"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.responseHeadersRaw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.responseLine"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.responseLine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.http_transaction.HttpTransactionData.statusCode"><code class="docutils literal notranslate"><span class="pre">HttpTransactionData.statusCode</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.info">ssllabs.data.info module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData"><code class="docutils literal notranslate"><span class="pre">InfoData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData.criteriaVersion"><code class="docutils literal notranslate"><span class="pre">InfoData.criteriaVersion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData.currentAssessments"><code class="docutils literal notranslate"><span class="pre">InfoData.currentAssessments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData.engineVersion"><code class="docutils literal notranslate"><span class="pre">InfoData.engineVersion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData.maxAssessments"><code class="docutils literal notranslate"><span class="pre">InfoData.maxAssessments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData.messages"><code class="docutils literal notranslate"><span class="pre">InfoData.messages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData.newAssessmentCoolOff"><code class="docutils literal notranslate"><span class="pre">InfoData.newAssessmentCoolOff</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.named_group">ssllabs.data.named_group module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_group.NamedGroupData"><code class="docutils literal notranslate"><span class="pre">NamedGroupData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_group.NamedGroupData.bits"><code class="docutils literal notranslate"><span class="pre">NamedGroupData.bits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_group.NamedGroupData.id"><code class="docutils literal notranslate"><span class="pre">NamedGroupData.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_group.NamedGroupData.name"><code class="docutils literal notranslate"><span class="pre">NamedGroupData.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.named_groups">ssllabs.data.named_groups module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_groups.NamedGroupsData"><code class="docutils literal notranslate"><span class="pre">NamedGroupsData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_groups.NamedGroupsData.list"><code class="docutils literal notranslate"><span class="pre">NamedGroupsData.list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.named_groups.NamedGroupsData.preference"><code class="docutils literal notranslate"><span class="pre">NamedGroupsData.preference</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.protocol">ssllabs.data.protocol module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol.ProtocolData"><code class="docutils literal notranslate"><span class="pre">ProtocolData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol.ProtocolData.id"><code class="docutils literal notranslate"><span class="pre">ProtocolData.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol.ProtocolData.name"><code class="docutils literal notranslate"><span class="pre">ProtocolData.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol.ProtocolData.q"><code class="docutils literal notranslate"><span class="pre">ProtocolData.q</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol.ProtocolData.v2SuitesDisabled"><code class="docutils literal notranslate"><span class="pre">ProtocolData.v2SuitesDisabled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol.ProtocolData.version"><code class="docutils literal notranslate"><span class="pre">ProtocolData.version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.protocol_suites">ssllabs.data.protocol_suites module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol_suites.ProtocolSuitesData"><code class="docutils literal notranslate"><span class="pre">ProtocolSuitesData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol_suites.ProtocolSuitesData.chaCha20Preference"><code class="docutils literal notranslate"><span class="pre">ProtocolSuitesData.chaCha20Preference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol_suites.ProtocolSuitesData.list"><code class="docutils literal notranslate"><span class="pre">ProtocolSuitesData.list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol_suites.ProtocolSuitesData.preference"><code class="docutils literal notranslate"><span class="pre">ProtocolSuitesData.preference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.protocol_suites.ProtocolSuitesData.protocol"><code class="docutils literal notranslate"><span class="pre">ProtocolSuitesData.protocol</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.sim_client">ssllabs.data.sim_client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_client.SimClientData"><code class="docutils literal notranslate"><span class="pre">SimClientData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_client.SimClientData.id"><code class="docutils literal notranslate"><span class="pre">SimClientData.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_client.SimClientData.isReference"><code class="docutils literal notranslate"><span class="pre">SimClientData.isReference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_client.SimClientData.name"><code class="docutils literal notranslate"><span class="pre">SimClientData.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_client.SimClientData.platform"><code class="docutils literal notranslate"><span class="pre">SimClientData.platform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_client.SimClientData.version"><code class="docutils literal notranslate"><span class="pre">SimClientData.version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.sim_details">ssllabs.data.sim_details module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_details.SimDetailsData"><code class="docutils literal notranslate"><span class="pre">SimDetailsData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.sim_details.SimDetailsData.results"><code class="docutils literal notranslate"><span class="pre">SimDetailsData.results</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.simulation">ssllabs.data.simulation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData"><code class="docutils literal notranslate"><span class="pre">SimulationData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.attempts"><code class="docutils literal notranslate"><span class="pre">SimulationData.attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.certChainId"><code class="docutils literal notranslate"><span class="pre">SimulationData.certChainId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.client"><code class="docutils literal notranslate"><span class="pre">SimulationData.client</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.dhBits"><code class="docutils literal notranslate"><span class="pre">SimulationData.dhBits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.dhG"><code class="docutils literal notranslate"><span class="pre">SimulationData.dhG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.dhP"><code class="docutils literal notranslate"><span class="pre">SimulationData.dhP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.dhYs"><code class="docutils literal notranslate"><span class="pre">SimulationData.dhYs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.errorCode"><code class="docutils literal notranslate"><span class="pre">SimulationData.errorCode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.errorMessage"><code class="docutils literal notranslate"><span class="pre">SimulationData.errorMessage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.keyAlg"><code class="docutils literal notranslate"><span class="pre">SimulationData.keyAlg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.keySize"><code class="docutils literal notranslate"><span class="pre">SimulationData.keySize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.kxStrength"><code class="docutils literal notranslate"><span class="pre">SimulationData.kxStrength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.kxType"><code class="docutils literal notranslate"><span class="pre">SimulationData.kxType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.namedGroupBits"><code class="docutils literal notranslate"><span class="pre">SimulationData.namedGroupBits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.namedGroupId"><code class="docutils literal notranslate"><span class="pre">SimulationData.namedGroupId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.namedGroupName"><code class="docutils literal notranslate"><span class="pre">SimulationData.namedGroupName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.protocolId"><code class="docutils literal notranslate"><span class="pre">SimulationData.protocolId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.sigAlg"><code class="docutils literal notranslate"><span class="pre">SimulationData.sigAlg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.suiteId"><code class="docutils literal notranslate"><span class="pre">SimulationData.suiteId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.simulation.SimulationData.suiteName"><code class="docutils literal notranslate"><span class="pre">SimulationData.suiteName</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.static_pkp_policy">ssllabs.data.static_pkp_policy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.error"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.forbiddenPins"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.forbiddenPins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.includeSubDomains"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.includeSubDomains</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.matchedForbiddenPins"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.matchedForbiddenPins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.matchedPins"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.matchedPins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.pins"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.pins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.reportUri"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.reportUri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.static_pkp_policy.StaticPkpPolicyData.status"><code class="docutils literal notranslate"><span class="pre">StaticPkpPolicyData.status</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.status_codes">ssllabs.data.status_codes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.status_codes.StatusCodesData"><code class="docutils literal notranslate"><span class="pre">StatusCodesData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.status_codes.StatusCodesData.statusDetails"><code class="docutils literal notranslate"><span class="pre">StatusCodesData.statusDetails</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.suite">ssllabs.data.suite module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData"><code class="docutils literal notranslate"><span class="pre">SuiteData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.cipherStrength"><code class="docutils literal notranslate"><span class="pre">SuiteData.cipherStrength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.dhG"><code class="docutils literal notranslate"><span class="pre">SuiteData.dhG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.dhP"><code class="docutils literal notranslate"><span class="pre">SuiteData.dhP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.dhYs"><code class="docutils literal notranslate"><span class="pre">SuiteData.dhYs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.id"><code class="docutils literal notranslate"><span class="pre">SuiteData.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.kxStrength"><code class="docutils literal notranslate"><span class="pre">SuiteData.kxStrength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.kxType"><code class="docutils literal notranslate"><span class="pre">SuiteData.kxType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.name"><code class="docutils literal notranslate"><span class="pre">SuiteData.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.namedGroupBits"><code class="docutils literal notranslate"><span class="pre">SuiteData.namedGroupBits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.namedGroupId"><code class="docutils literal notranslate"><span class="pre">SuiteData.namedGroupId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.namedGroupName"><code class="docutils literal notranslate"><span class="pre">SuiteData.namedGroupName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.suite.SuiteData.q"><code class="docutils literal notranslate"><span class="pre">SuiteData.q</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.trust">ssllabs.data.trust module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust.TrustData"><code class="docutils literal notranslate"><span class="pre">TrustData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust.TrustData.isTrusted"><code class="docutils literal notranslate"><span class="pre">TrustData.isTrusted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust.TrustData.rootStore"><code class="docutils literal notranslate"><span class="pre">TrustData.rootStore</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust.TrustData.trustErrorMessage"><code class="docutils literal notranslate"><span class="pre">TrustData.trustErrorMessage</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data.trust_path">ssllabs.data.trust_path module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust_path.TrustPathData"><code class="docutils literal notranslate"><span class="pre">TrustPathData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust_path.TrustPathData.certIds"><code class="docutils literal notranslate"><span class="pre">TrustPathData.certIds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust_path.TrustPathData.isPinned"><code class="docutils literal notranslate"><span class="pre">TrustPathData.isPinned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust_path.TrustPathData.matchedPins"><code class="docutils literal notranslate"><span class="pre">TrustPathData.matchedPins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust_path.TrustPathData.trust"><code class="docutils literal notranslate"><span class="pre">TrustPathData.trust</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.trust_path.TrustPathData.unmatchedPins"><code class="docutils literal notranslate"><span class="pre">TrustPathData.unmatchedPins</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssllabs.data.html#module-ssllabs.data">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-ssllabs.ssllabs">
+<span id="ssllabs-ssllabs-module"></span><h2>ssllabs.ssllabs module<a class="headerlink" href="#module-ssllabs.ssllabs" title="Link to this heading">#</a></h2>
+<p>High level implementation of the SSL Labs API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ssllabs.ssllabs.Ssllabs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssllabs.ssllabs.</span></span><span class="sig-name descname"><span class="pre">Ssllabs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AsyncClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssllabs.ssllabs.Ssllabs" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>High level methods to interact with the SSL Labs Assessment APIs.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.ssllabs.Ssllabs.analyze">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">publish</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_mismatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData" title="ssllabs.data.host.HostData"><span class="pre">HostData</span></a></span></span><a class="headerlink" href="#ssllabs.ssllabs.Ssllabs.analyze" title="Link to this definition">#</a></dt>
+<dd><p>Test a particular host with respect to the cool off and the maximum number of assessments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – Host to test</p></li>
+<li><p><strong>publish</strong> – True if assessment results should be published on the public results boards</p></li>
+<li><p><strong>ignore_mismatch</strong> – True if assessment shall proceed even when the server certificate doesn’t match the hostname</p></li>
+<li><p><strong>from_cache</strong> – True if cached results should be used instead of new assessments</p></li>
+<li><p><strong>max_age</strong> – Maximum age cached data might have in hours</p></li>
+</ul>
+</dd>
+</dl>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-usage">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.ssllabs.Ssllabs.availability">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">availability</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#ssllabs.ssllabs.Ssllabs.availability" title="Link to this definition">#</a></dt>
+<dd><p>Check the availability of the SSL Labs servers.</p>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#error-response-status-codes">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.ssllabs.Ssllabs.info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData" title="ssllabs.data.info.InfoData"><span class="pre">InfoData</span></a></span></span><a class="headerlink" href="#ssllabs.ssllabs.Ssllabs.info" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve the engine and criteria version, and initialize the maximum number of concurrent assessments.</p>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#info">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.ssllabs.Ssllabs.root_certs">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">root_certs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trust_store</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ssllabs.TrustStore" title="ssllabs.trust_store.TrustStore"><span class="pre">TrustStore</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">TrustStore.MOZILLA</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#ssllabs.ssllabs.Ssllabs.root_certs" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve root certificates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trust_store</strong> – Trust store to return (Mozilla, MacOS, Android, Java or Windows)</p>
+</dd>
+</dl>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#retrieve-root-certificates">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.ssllabs.Ssllabs.status_codes">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_codes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.status_codes.StatusCodesData" title="ssllabs.data.status_codes.StatusCodesData"><span class="pre">StatusCodesData</span></a></span></span><a class="headerlink" href="#ssllabs.ssllabs.Ssllabs.status_codes" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve known status codes.</p>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#retrieve-known-status-codes">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-ssllabs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ssllabs" title="Link to this heading">#</a></h2>
+<p>Qualys SSL Labs API in Python.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="ssllabs.EndpointError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssllabs.</span></span><span class="sig-name descname"><span class="pre">EndpointError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssllabs.EndpointError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>The Endpoint API raised errors.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ssllabs.Ssllabs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssllabs.</span></span><span class="sig-name descname"><span class="pre">Ssllabs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AsyncClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssllabs.Ssllabs" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>High level methods to interact with the SSL Labs Assessment APIs.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.Ssllabs.analyze">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">publish</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_mismatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.host.HostData" title="ssllabs.data.host.HostData"><span class="pre">HostData</span></a></span></span><a class="headerlink" href="#ssllabs.Ssllabs.analyze" title="Link to this definition">#</a></dt>
+<dd><p>Test a particular host with respect to the cool off and the maximum number of assessments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – Host to test</p></li>
+<li><p><strong>publish</strong> – True if assessment results should be published on the public results boards</p></li>
+<li><p><strong>ignore_mismatch</strong> – True if assessment shall proceed even when the server certificate doesn’t match the hostname</p></li>
+<li><p><strong>from_cache</strong> – True if cached results should be used instead of new assessments</p></li>
+<li><p><strong>max_age</strong> – Maximum age cached data might have in hours</p></li>
+</ul>
+</dd>
+</dl>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-usage">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.Ssllabs.availability">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">availability</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#ssllabs.Ssllabs.availability" title="Link to this definition">#</a></dt>
+<dd><p>Check the availability of the SSL Labs servers.</p>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#error-response-status-codes">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.Ssllabs.info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.info.InfoData" title="ssllabs.data.info.InfoData"><span class="pre">InfoData</span></a></span></span><a class="headerlink" href="#ssllabs.Ssllabs.info" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve the engine and criteria version, and initialize the maximum number of concurrent assessments.</p>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#info">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.Ssllabs.root_certs">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">root_certs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trust_store</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ssllabs.TrustStore" title="ssllabs.trust_store.TrustStore"><span class="pre">TrustStore</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">TrustStore.MOZILLA</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#ssllabs.Ssllabs.root_certs" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve root certificates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trust_store</strong> – Trust store to return (Mozilla, MacOS, Android, Java or Windows)</p>
+</dd>
+</dl>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#retrieve-root-certificates">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ssllabs.Ssllabs.status_codes">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_codes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ssllabs.data.html#ssllabs.data.status_codes.StatusCodesData" title="ssllabs.data.status_codes.StatusCodesData"><span class="pre">StatusCodesData</span></a></span></span><a class="headerlink" href="#ssllabs.Ssllabs.status_codes" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve known status codes.</p>
+<p>See also: <a class="github reference external" href="https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#retrieve-known-status-codes">ssllabs/ssllabs-scan</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ssllabs.SsllabsOverloadedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssllabs.</span></span><span class="sig-name descname"><span class="pre">SsllabsOverloadedError</span></span><a class="headerlink" href="#ssllabs.SsllabsOverloadedError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>The service is overloaded.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ssllabs.SsllabsUnavailableError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssllabs.</span></span><span class="sig-name descname"><span class="pre">SsllabsUnavailableError</span></span><a class="headerlink" href="#ssllabs.SsllabsUnavailableError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>The service is not available.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ssllabs.TrustStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssllabs.</span></span><span class="sig-name descname"><span class="pre">TrustStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssllabs.TrustStore" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
+<p>Known trust stores.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ssllabs.TrustStore.ANDROID">
+<span class="sig-name descname"><span class="pre">ANDROID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#ssllabs.TrustStore.ANDROID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ssllabs.TrustStore.JAVA">
+<span class="sig-name descname"><span class="pre">JAVA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#ssllabs.TrustStore.JAVA" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ssllabs.TrustStore.MACOS">
+<span class="sig-name descname"><span class="pre">MACOS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#ssllabs.TrustStore.MACOS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ssllabs.TrustStore.MOZILLA">
+<span class="sig-name descname"><span class="pre">MOZILLA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#ssllabs.TrustStore.MOZILLA" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ssllabs.TrustStore.WINDOWS">
+<span class="sig-name descname"><span class="pre">WINDOWS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#ssllabs.TrustStore.WINDOWS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../changelog.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Changelog</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ssllabs.api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ssllabs.api package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ssllabs.ssllabs">ssllabs.ssllabs module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.ssllabs.Ssllabs"><code class="docutils literal notranslate"><span class="pre">Ssllabs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.ssllabs.Ssllabs.analyze"><code class="docutils literal notranslate"><span class="pre">Ssllabs.analyze()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.ssllabs.Ssllabs.availability"><code class="docutils literal notranslate"><span class="pre">Ssllabs.availability()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.ssllabs.Ssllabs.info"><code class="docutils literal notranslate"><span class="pre">Ssllabs.info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.ssllabs.Ssllabs.root_certs"><code class="docutils literal notranslate"><span class="pre">Ssllabs.root_certs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.ssllabs.Ssllabs.status_codes"><code class="docutils literal notranslate"><span class="pre">Ssllabs.status_codes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ssllabs">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.EndpointError"><code class="docutils literal notranslate"><span class="pre">EndpointError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.Ssllabs"><code class="docutils literal notranslate"><span class="pre">Ssllabs</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.Ssllabs.analyze"><code class="docutils literal notranslate"><span class="pre">Ssllabs.analyze()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.Ssllabs.availability"><code class="docutils literal notranslate"><span class="pre">Ssllabs.availability()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.Ssllabs.info"><code class="docutils literal notranslate"><span class="pre">Ssllabs.info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.Ssllabs.root_certs"><code class="docutils literal notranslate"><span class="pre">Ssllabs.root_certs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.Ssllabs.status_codes"><code class="docutils literal notranslate"><span class="pre">Ssllabs.status_codes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.SsllabsOverloadedError"><code class="docutils literal notranslate"><span class="pre">SsllabsOverloadedError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.SsllabsUnavailableError"><code class="docutils literal notranslate"><span class="pre">SsllabsUnavailableError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.TrustStore"><code class="docutils literal notranslate"><span class="pre">TrustStore</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.TrustStore.ANDROID"><code class="docutils literal notranslate"><span class="pre">TrustStore.ANDROID</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.TrustStore.JAVA"><code class="docutils literal notranslate"><span class="pre">TrustStore.JAVA</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.TrustStore.MACOS"><code class="docutils literal notranslate"><span class="pre">TrustStore.MACOS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.TrustStore.MOZILLA"><code class="docutils literal notranslate"><span class="pre">TrustStore.MOZILLA</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ssllabs.TrustStore.WINDOWS"><code class="docutils literal notranslate"><span class="pre">TrustStore.WINDOWS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/source/ssllabs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Markus Bong and Guido Schmitz.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
