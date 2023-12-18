@@ -1,6 +1,6 @@
 # ssllabs
 
-This project implements the [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) API in python. It uses [API version 3](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md). All methods are async.
+This project implements the [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) API in python. It uses [API version 3](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md). All methods are async. However, it is not affiliated with or officially supported by SSL Labs.
 
 ## System requirements
 
@@ -28,7 +28,7 @@ python -m pip install ssllabs
 
 ## High level usage
 
-If you want to cover on the common usage cases, you can use our high level implementations that already take care of the recommended [protocol usage](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-usage) and [rate limits](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#access-rate-and-rate-limiting).
+If you want to cover on the common usage cases, you can use our high level implementations that already take care of the recommended [protocol usage](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#protocol-usage) and [rate limits](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#access-rate-and-rate-limiting). Please keep in mind, that you will be sending assessment requests to remote SSL Labs servers and that your information will be shared with them. Subject to the [terms and conditions](https://www.ssllabs.com/about/terms.html).
 
 ```python
 import asyncio
