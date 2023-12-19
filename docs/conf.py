@@ -13,15 +13,15 @@
 import os
 import sys
 
-from pkg_resources import get_distribution
+from importlib.metadata import distribution
 
 sys.path.insert(0, os.path.abspath("../"))
 
-version = get_distribution("ssllabs").version
+version = distribution("ssllabs").version
 
 # -- Project information -----------------------------------------------------
 
-project = get_distribution("ssllabs").project_name
+project = "ssllabs"
 copyright = "2023, Markus Bong and Guido Schmitz"
 author = "Markus Bong, Guido Schmitz"
 
