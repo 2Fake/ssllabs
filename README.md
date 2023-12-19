@@ -43,3 +43,6 @@ asyncio.run(analyze())
 ```
 
 This will give you a [Host object](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md#host) as dataclass. This call runs quite long as it takes time to run all tests. You probably know that from using the [webinterface](https://www.ssllabs.com/ssltest).
+
+> [!TIP]
+> Please see our [documentation](https://2fake.github.io/ssllabs/) for further information and extended examples.
