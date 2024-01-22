@@ -107,6 +107,7 @@ jobs:
         uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ github.run_id }}
+          restore-keys: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}
           path: .venv
       - name: Install dependencies
         run: |
