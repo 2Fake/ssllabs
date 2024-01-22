@@ -19,8 +19,8 @@ jobs:
         id: setup_python
         with:
           python-version: "3.8"
-      - name: Cache virtualenv
-        uses: actions/cache@v4.0.0
+      - name: Restore virtual environment
+        uses: actions/cache/restore@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
           path: .venv
@@ -29,10 +29,18 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           python -m pip install --upgrade pip
+          python -m pip install --upgrade --upgrade-strategy eager .[dev,test]
+      - name: Cache virtual environment
+        uses: actions/cache/save@v4.0.0
+        if: always()
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
 
   format:
     name: Check formatting
     runs-on: ubuntu-latest
+    needs: [venv]
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4.1.1
@@ -41,7 +49,7 @@ jobs:
         id: setup_python
         with:
           python-version: "3.8"
-      - name: Cache virtualenv
+      - name: Cache virtual environment
         uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
@@ -50,9 +58,7 @@ jobs:
         uses: psf/black@23.12.1
       - name: Check JSON formatting
         run: |
-          python -m venv .venv
           source .venv/bin/activate
-          python -m pip install pre-commit
           pre-commit run check-json --all-files
       - name: Check other formatting
         run: |
@@ -63,6 +69,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    needs: [venv]
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4.1.1
@@ -71,7 +78,7 @@ jobs:
         id: setup_python
         with:
           python-version: "3.8"
-      - name: Cache virtualenv
+      - name: Cache virtual environment
         uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ hashFiles('pyproject.toml') }}
@@ -80,7 +87,6 @@ jobs:
         uses: chartboost/ruff-action@v1.0.0
       - name: Lint with mypy
         run: |
-          python -m venv .venv
           source .venv/bin/activate
           python -m pip install mypy types-setuptools
           mypy --ignore-missing-imports ssllabs
@@ -89,6 +95,7 @@ jobs:
   test:
     name: Test with Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    needs: [format, lint]
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
@@ -102,7 +109,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           allow-prereleases: true
           check-latest: true
-      - name: Cache virtualenv
+      - name: Use virtual environment
         uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ hashFiles('pyproject.toml') }}
@@ -112,7 +119,7 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           python -m pip install --upgrade pip
-          python -m pip install -e .[test]
+          python -m pip install --upgrade --upgrade-strategy eager .[test]
       - name: Test with pytest
         run: |
           source .venv/bin/activate
