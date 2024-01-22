@@ -22,9 +22,9 @@ jobs:
       - name: Create virtual environment
         uses: actions/cache@v4.0.0
         with:
-          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ github.run_id }}
+          restore-keys: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}
           path: .venv
-          save-always: true
       - name: Update Pip
         run: |
           python -m venv .venv
@@ -47,7 +47,7 @@ jobs:
       - name: Cache virtual environment
         uses: actions/cache@v4.0.0
         with:
-          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ github.run_id }}
           path: .venv
       - name: Check Python formatting
         uses: psf/black@23.12.1
@@ -76,7 +76,7 @@ jobs:
       - name: Cache virtual environment
         uses: actions/cache@v4.0.0
         with:
-          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ hashFiles('pyproject.toml') }}
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ github.run_id }}
           path: .venv
       - name: Lint with ruff
         uses: chartboost/ruff-action@v1.0.0
@@ -106,7 +106,7 @@ jobs:
       - name: Use virtual environment
         uses: actions/cache@v4.0.0
         with:
-          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ hashFiles('pyproject.toml') }}
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ github.run_id }}
           path: .venv
       - name: Install dependencies
         run: |
