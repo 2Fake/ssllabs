@@ -24,6 +24,7 @@ jobs:
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
           path: .venv
+      - name: Update Pip
         run: |
           python -m venv .venv
           source .venv/bin/activate
