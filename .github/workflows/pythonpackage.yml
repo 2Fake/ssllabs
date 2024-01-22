@@ -8,6 +8,27 @@ on:
   workflow_dispatch:
 
 jobs:
+  venv:
+    name: Create virtual environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4.1.1
+      - name: Set up Python
+        uses: actions/setup-python@v5.0.0
+        id: setup_python
+        with:
+          python-version: "3.8"
+      - name: Cache virtualenv
+        uses: actions/cache@v4.0.0
+        with:
+          key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
+          path: .venv
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install --upgrade pip
+
   format:
     name: Check formatting
     runs-on: ubuntu-latest
@@ -20,7 +41,7 @@ jobs:
         with:
           python-version: "3.8"
       - name: Cache virtualenv
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('pyproject.toml') }}
           path: .venv
@@ -30,7 +51,6 @@ jobs:
         run: |
           python -m venv .venv
           source .venv/bin/activate
-          python -m pip install --upgrade pip
           python -m pip install pre-commit
           pre-commit run check-json --all-files
       - name: Check other formatting
@@ -51,7 +71,7 @@ jobs:
         with:
           python-version: "3.8"
       - name: Cache virtualenv
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ hashFiles('pyproject.toml') }}
           path: .venv
@@ -61,7 +81,6 @@ jobs:
         run: |
           python -m venv .venv
           source .venv/bin/activate
-          python -m pip install --upgrade pip
           python -m pip install mypy types-setuptools
           mypy --ignore-missing-imports ssllabs
           mypy --ignore-missing-imports tests
@@ -83,7 +102,7 @@ jobs:
           allow-prereleases: true
           check-latest: true
       - name: Cache virtualenv
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.0
         with:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version}}-${{ hashFiles('pyproject.toml') }}
           path: .venv
