@@ -1,4 +1,5 @@
 """Trust Stores."""
+
 from enum import IntEnum
 
 

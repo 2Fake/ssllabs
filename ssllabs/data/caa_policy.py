@@ -1,4 +1,5 @@
 """CAA Policy."""
+
 from dataclasses import dataclass
 from typing import List
 

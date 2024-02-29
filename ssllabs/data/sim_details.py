@@ -1,4 +1,5 @@
 """Simulation Objects."""
+
 from dataclasses import dataclass
 from typing import List
 

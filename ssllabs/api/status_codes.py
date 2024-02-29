@@ -1,4 +1,5 @@
 """Retrieve known status codes."""
+
 from dacite import from_dict
 
 from ssllabs.data.status_codes import StatusCodesData
