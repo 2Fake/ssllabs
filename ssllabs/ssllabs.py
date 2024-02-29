@@ -1,4 +1,5 @@
 """High level implementation of the SSL Labs API."""
+
 from __future__ import annotations
 
 import asyncio

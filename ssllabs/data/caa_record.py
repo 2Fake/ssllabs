@@ -1,4 +1,5 @@
 """CAA Record."""
+
 from dataclasses import dataclass
 
 

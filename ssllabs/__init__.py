@@ -1,4 +1,5 @@
 """Qualys SSL Labs API in Python."""
+
 from importlib.metadata import PackageNotFoundError, version
 
 from .exceptions import EndpointError, SsllabsOverloadedError, SsllabsUnavailableError

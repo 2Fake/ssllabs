@@ -1,4 +1,5 @@
 """Protocol suites."""
+
 from dataclasses import dataclass
 from typing import List, Optional
 

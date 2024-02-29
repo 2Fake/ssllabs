@@ -1,4 +1,5 @@
 """Test high level API."""
+
 from __future__ import annotations
 
 import dataclasses

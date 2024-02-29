@@ -1,4 +1,5 @@
 """Retrieve root certificates."""
+
 from typing import Any
 
 from ._api import _Api

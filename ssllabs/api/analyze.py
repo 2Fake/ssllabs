@@ -1,4 +1,5 @@
 """Invoke assessment and check progress."""
+
 from typing import Any
 
 from dacite import from_dict

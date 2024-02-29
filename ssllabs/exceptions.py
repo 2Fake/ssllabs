@@ -1,4 +1,5 @@
 """Exceptions for the ssllabs module."""
+
 from __future__ import annotations
 
 

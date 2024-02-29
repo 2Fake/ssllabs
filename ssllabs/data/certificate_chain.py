@@ -1,4 +1,5 @@
 """Certificate Chain."""
+
 from dataclasses import dataclass
 from typing import List
 

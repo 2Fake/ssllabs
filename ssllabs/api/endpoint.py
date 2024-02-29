@@ -1,4 +1,5 @@
 """Retrieve detailed endpoint information."""
+
 from typing import Any
 
 from dacite import MissingValueError, from_dict

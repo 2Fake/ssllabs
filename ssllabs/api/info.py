@@ -1,4 +1,5 @@
 """General information about the SSL Labs API."""
+
 from dacite import from_dict
 
 from ssllabs.data.info import InfoData

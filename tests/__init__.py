@@ -1,4 +1,5 @@
 """Tests for ssllabs."""
+
 from functools import lru_cache
 from json import loads
 from pathlib import Path
