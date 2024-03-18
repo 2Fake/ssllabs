@@ -50,7 +50,7 @@ jobs:
           key: venv-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ github.run_id }}
           path: .venv
       - name: Check Python formatting
-        uses: psf/black@24.2.0
+        uses: psf/black@24.3.0
       - name: Check JSON formatting
         run: |
           source .venv/bin/activate
